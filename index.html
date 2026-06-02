@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Enteva Microsystems | Oasis Silicon Cluster</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-primary": "#ffffff",
+          "on-primary-fixed": "#001f28",
+          "secondary-fixed-dim": "#b5c8e4",
+          "surface-container-high": "#e9e8e3",
+          "on-surface-variant": "#40484b",
+          "surface-dim": "#dbdad5",
+          "surface-variant": "#e3e3de",
+          "on-background": "#1b1c19",
+          "surface": "#faf9f4",
+          "outline-variant": "#c0c8cc",
+          "tertiary-container": "#494b00",
+          "on-tertiary-fixed-variant": "#484a00",
+          "on-error-container": "#93000a",
+          "primary-container": "#0d4f60",
+          "on-primary-container": "#89bfd3",
+          "surface-bright": "#faf9f4",
+          "outline": "#70787c",
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed": "#1c1d00",
+          "secondary": "#4e6078",
+          "secondary-container": "#cee1fe",
+          "primary": "#003745",
+          "secondary-fixed": "#d2e4ff",
+          "surface-container-low": "#f5f4ef",
+          "inverse-surface": "#30312e",
+          "surface-container-lowest": "#ffffff",
+          "on-secondary-container": "#52647c",
+          "on-surface": "#1b1c19",
+          "primary-fixed-dim": "#98cfe3",
+          "tertiary-fixed": "#e5ea49",
+          "tertiary-fixed-dim": "#c9ce2d",
+          "on-secondary-fixed-variant": "#36485f",
+          "on-tertiary": "#ffffff",
+          "inverse-on-surface": "#f2f1ec",
+          "on-primary-fixed-variant": "#0a4d5e",
+          "on-secondary-fixed": "#081c32",
+          "inverse-primary": "#98cfe3",
+          "error-container": "#ffdad6",
+          "background": "#faf9f4",
+          "surface-container": "#efeee9",
+          "primary-fixed": "#b5ebff",
+          "surface-container-highest": "#e3e3de",
+          "surface-tint": "#2c6577",
+          "tertiary": "#323400",
+          "on-tertiary-container": "#b9be19",
+          "error": "#ba1a1a",
+          "on-error": "#ffffff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "container-max": "1280px",
+          "margin-desktop": "64px",
+          "base": "8px",
+          "margin-mobile": "16px",
+          "gutter": "24px"
+        },
+        "fontFamily": {
+          "label-caps": ["Hanken Grotesk"],
+          "display-lg": ["Hanken Grotesk"],
+          "data-mono": ["JetBrains Mono"],
+          "body-md": ["Inter"],
+          "body-lg": ["Inter"],
+          "headline-md": ["Hanken Grotesk"],
+          "display-lg-mobile": ["Hanken Grotesk"]
+        },
+        "fontSize": {
+          "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+          "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "data-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+          "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+          "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+          "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+        }
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(13, 79, 96, 0.1);
+  }
+  .text-glow {
+    text-shadow: 0 0 20px rgba(181, 235, 255, 0.3);
+  }
+  .bento-card {
+    transition: all 0.3s ease;
+  }
+  .bento-card:hover {
+    border-color: rgba(152, 207, 227, 0.4);
+    transform: translateY(-4px);
+  }
+  .lang-btn {
+    transition: all 0.15s ease;
+  }
+  .lang-btn.active {
+    background-color: #003745;
+    color: #ffffff;
+  }
+  #mobile-menu {
+    transition: none;
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body-md">
+
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-xl border-b border-primary/10 bg-surface/80 shadow-sm">
+  <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop flex justify-between items-center h-16 md:h-20">
+    <div class="font-headline-md text-headline-md text-primary tracking-tight">Enteva</div>
+
+    <!-- Desktop nav links + lang -->
+    <div class="hidden md:flex gap-8 items-center">
+      <a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#industry" data-i18n="nav_industry">Industry</a>
+      <a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#advantages" data-i18n="nav_advantages">Advantages</a>
+      <a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#ecosystem" data-i18n="nav_ecosystem">Ecosystem</a>
+      <a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#technology" data-i18n="nav_technology">Technology</a>
+      <button class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded hover:opacity-90 active:scale-95 transition-all" data-i18n="nav_contact">Contact Us</button>
+      <div class="flex items-center gap-1 border border-primary/20 rounded-lg p-1">
+        <button onclick="setLang('en')" class="lang-btn en-btn font-label-caps text-label-caps text-primary px-2.5 py-1 rounded text-xs hover:bg-primary/10">EN</button>
+        <button onclick="setLang('ru')" class="lang-btn ru-btn font-label-caps text-label-caps text-primary px-2.5 py-1 rounded text-xs hover:bg-primary/10">RU</button>
+        <button onclick="setLang('kz')" class="lang-btn kz-btn font-label-caps text-label-caps text-primary px-2.5 py-1 rounded text-xs hover:bg-primary/10">ҚАЗ</button>
+      </div>
+    </div>
+
+    <!-- Mobile: lang switcher + hamburger -->
+    <div class="flex md:hidden items-center gap-2">
+      <div class="flex items-center gap-0.5 border border-primary/20 rounded-lg p-0.5">
+        <button onclick="setLang('en')" class="lang-btn en-btn font-label-caps text-label-caps text-primary px-2 py-1.5 rounded text-xs hover:bg-primary/10">EN</button>
+        <button onclick="setLang('ru')" class="lang-btn ru-btn font-label-caps text-label-caps text-primary px-2 py-1.5 rounded text-xs hover:bg-primary/10">RU</button>
+        <button onclick="setLang('kz')" class="lang-btn kz-btn font-label-caps text-label-caps text-primary px-2 py-1.5 rounded text-xs hover:bg-primary/10">ҚАЗ</button>
+      </div>
+      <button id="mobile-menu-btn" class="text-primary p-1.5 rounded hover:bg-primary/5 active:scale-95 transition-all" onclick="toggleMobileMenu()">
+        <span class="material-symbols-outlined text-2xl leading-none block" id="mobile-menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-t border-primary/10 px-4 pb-6 pt-2">
+    <a class="flex items-center font-label-caps text-label-caps text-secondary hover:text-primary py-3.5 border-b border-outline/10 transition-colors" href="#industry" onclick="closeMobileMenu()" data-i18n="nav_industry">Industry</a>
+    <a class="flex items-center font-label-caps text-label-caps text-secondary hover:text-primary py-3.5 border-b border-outline/10 transition-colors" href="#advantages" onclick="closeMobileMenu()" data-i18n="nav_advantages">Advantages</a>
+    <a class="flex items-center font-label-caps text-label-caps text-secondary hover:text-primary py-3.5 border-b border-outline/10 transition-colors" href="#ecosystem" onclick="closeMobileMenu()" data-i18n="nav_ecosystem">Ecosystem</a>
+    <a class="flex items-center font-label-caps text-label-caps text-secondary hover:text-primary py-3.5 border-b border-outline/10 transition-colors" href="#technology" onclick="closeMobileMenu()" data-i18n="nav_technology">Technology</a>
+    <div class="pt-4">
+      <button class="w-full bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3.5 rounded hover:opacity-90 active:scale-95 transition-all" data-i18n="nav_contact">Contact Us</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img alt="Futuristic microelectronics cluster architectural vision at sunset" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI2fGlfExlfKgPGjKh4QtwdpXN-eYmyvgs4LlozmdatWyVHjrll785KuSbfj5ailnA79glk85vMZJ5MOqAONi7eN0Jd99Y8BvrgAYZcc83Er3yWDzNAcr_IefwJ639yWl99m7Z2iAY0jmj7NdqIP27UTdK15Hr5XjWvsk7wT7PQ_L1i9ioVgiHEQ7q0vWlpFw299pXVxWVQS9nX9y9Rbf2JExvkV3lNfIFlDQMC88LNxyABs8F1nipo1vBjEnmU-P7VQrETfH6dOuD"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/95 via-primary/75 to-primary/40 md:bg-gradient-to-r md:from-primary/90 md:via-primary/40 md:to-transparent"></div>
+  </div>
+  <div class="relative z-10 max-w-container-max mx-auto px-4 md:px-margin-desktop w-full text-on-primary py-16 md:py-0">
+    <div class="max-w-3xl space-y-6 md:space-y-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded font-label-caps text-label-caps uppercase" data-i18n="hero_badge">
+        Central Asia's Tech Frontier
+      </div>
+      <h1 class="font-display-lg text-[2rem] leading-tight sm:text-[2.5rem] md:text-display-lg text-glow" data-i18n-html="hero_title">
+        The First Microelectronics <br/> Cluster in Central Asia
+      </h1>
+      <div class="space-y-1 md:space-y-2">
+        <p class="font-headline-md text-base md:text-headline-md text-primary-fixed-dim">OASIS SILICON CLUSTER</p>
+        <p class="font-data-mono text-data-mono opacity-80" data-i18n="hero_location">Astana · Kazakhstan · AIFC · 2026</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 pt-2 md:pt-4">
+        <button class="bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps px-6 md:px-8 py-4 rounded-lg flex items-center justify-center gap-2 group" data-i18n="hero_cta1">
+          Explore Ecosystem
+          <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </button>
+        <button class="border border-on-primary/30 font-label-caps text-label-caps px-6 md:px-8 py-4 rounded-lg hover:bg-on-primary/10 transition-colors text-center" data-i18n="hero_cta2">
+          View Roadmap
+        </button>
+      </div>
+      <!-- Stats: visible on mobile/tablet, hidden on lg (replaced by bottom bar) -->
+      <div class="grid grid-cols-3 gap-2 pt-4 border-t border-on-primary/20 lg:hidden">
+        <div>
+          <p class="font-label-caps text-[9px] sm:text-[10px] leading-none mb-1 opacity-60" data-i18n="hero_stat1_label">Status</p>
+          <p class="font-data-mono text-xs text-on-primary leading-snug" data-i18n="hero_stat1_val">Phase 01 Active</p>
+        </div>
+        <div>
+          <p class="font-label-caps text-[9px] sm:text-[10px] leading-none mb-1 opacity-60" data-i18n="hero_stat2_label">Impact</p>
+          <p class="font-data-mono text-xs text-on-primary leading-snug" data-i18n="hero_stat2_val">$20B FDI Target</p>
+        </div>
+        <div>
+          <p class="font-label-caps text-[9px] sm:text-[10px] leading-none mb-1 opacity-60" data-i18n="hero_stat3_label">Jurisdiction</p>
+          <p class="font-data-mono text-xs text-on-primary leading-snug" data-i18n="hero_stat3_val">Common Law (AIFC)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Desktop bottom stats bar -->
+  <div class="absolute bottom-12 left-margin-desktop hidden lg:flex gap-16 text-on-primary/60 border-l border-on-primary/20 pl-8">
+    <div>
+      <p class="font-label-caps text-label-caps mb-1" data-i18n="hero_stat1_label">Status</p>
+      <p class="font-data-mono text-data-mono text-on-primary" data-i18n="hero_stat1_val">Phase 01 Active</p>
+    </div>
+    <div>
+      <p class="font-label-caps text-label-caps mb-1" data-i18n="hero_stat2_label">Impact</p>
+      <p class="font-data-mono text-data-mono text-on-primary" data-i18n="hero_stat2_val">$20B FDI Target</p>
+    </div>
+    <div>
+      <p class="font-label-caps text-label-caps mb-1" data-i18n="hero_stat3_label">Jurisdiction</p>
+      <p class="font-data-mono text-data-mono text-on-primary" data-i18n="hero_stat3_val">Common Law (AIFC)</p>
+    </div>
+  </div>
+</header>
+
+<!-- Industry Context -->
+<section class="py-16 md:py-24 bg-primary text-on-primary overflow-hidden" id="industry">
+  <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div class="space-y-8 md:space-y-12">
+        <div class="space-y-3 md:space-y-4">
+          <h2 class="font-display-lg text-[1.75rem] sm:text-3xl md:text-display-lg leading-tight" data-i18n="industry_title">The World Has Changed</h2>
+          <p class="font-headline-md text-base md:text-headline-md text-primary-fixed-dim" data-i18n="industry_subtitle">Semiconductors are no longer just an industry—they're a national security issue.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-gutter">
+          <div class="p-6 md:p-8 bg-on-primary/5 border border-on-primary/10 rounded-xl space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-data-mono text-data-mono opacity-50">01</span>
+              <span class="material-symbols-outlined text-tertiary-fixed">trending_up</span>
+            </div>
+            <h3 class="font-display-lg text-display-lg text-tertiary-fixed">2x</h3>
+            <p class="font-body-md opacity-80 text-on-primary" data-i18n="industry_stat1">Semiconductor companies are now worth twice as much as oil giants (2023 market cap comparison).</p>
+          </div>
+          <div class="p-6 md:p-8 bg-on-primary/5 border border-on-primary/10 rounded-xl space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-data-mono text-data-mono opacity-50">02</span>
+              <span class="material-symbols-outlined text-tertiary-fixed">language</span>
+            </div>
+            <h3 class="font-display-lg text-display-lg text-tertiary-fixed">$1T</h3>
+            <p class="font-body-md opacity-80 text-on-primary" data-i18n="industry_stat2">The global chip market is expected to hit $1 trillion by 2030 (McKinsey).</p>
+          </div>
+        </div>
+      </div>
+      <div class="relative bg-on-primary/5 rounded-2xl p-4 md:p-8 border border-on-primary/10">
+        <img alt="Global semiconductor supply chain and geopolitics visualization showing Central Asia as a new hub" class="w-full rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMrD1aPs_v59xqHnygcJwxwtLs9s9iUM8ukXJzdrOkqI5vR87HiHpTXThUtsmF1HnwAFl8QLp4iboLOQtPch8MKoTueVKn8gHsei-mTl-PvDvmSsLxNg8Bva971IF6QbzYWoEUvhLe0jGLNU90YAFptVyqL7-lWmg7FBLV00AqxgxJvJQxHfXCFBE3lbudT_yUKVy0MdNRHE_bxGJPphohPHjgmJmpM8KEiFhWQfs6kE7eDiJOnjOpd70mydSw-XrY5e9mVqaoCQK9"/>
+        <div class="absolute inset-0 bg-primary/20 backdrop-blur-[2px] rounded-2xl pointer-events-none"></div>
+        <div class="mt-6 md:mt-8 space-y-3 md:space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-3 h-3 rounded-full bg-error animate-pulse flex-shrink-0"></div>
+            <p class="font-label-caps text-label-caps uppercase tracking-widest text-primary-fixed-dim" data-i18n="industry_gap_label">Current Gap: Central Asia</p>
+          </div>
+          <p class="font-body-lg text-body-lg" data-i18n="industry_gap_desc">Dozens of countries have national chip programs. Central Asia has zero. We are filling that void.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Strategic Advantages -->
+<section class="py-16 md:py-24 bg-surface" id="advantages">
+  <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop">
+    <div class="text-center mb-10 md:mb-16 space-y-3 md:space-y-4">
+      <p class="font-label-caps text-label-caps text-primary uppercase" data-i18n="adv_label">Strategic Integration</p>
+      <h2 class="font-display-lg text-[1.75rem] sm:text-3xl md:text-display-lg text-primary leading-tight" data-i18n="adv_title">Kazakhstan: Strategic Hub for Microelectronics</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-gutter">
+      <!-- 01 SEZ -->
+      <div class="bento-card bg-surface-container-lowest border border-outline/10 rounded-xl overflow-hidden shadow-sm">
+        <div class="h-36 md:h-40 overflow-hidden relative">
+          <div class="w-full h-full bg-primary-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-6xl text-on-primary/20">percent</span>
+          </div>
+          <div class="absolute bottom-4 left-4 bg-primary text-on-primary px-3 py-1 font-data-mono text-xs">01</div>
+        </div>
+        <div class="p-5 md:p-6 space-y-3 md:space-y-4">
+          <h4 class="font-headline-md text-headline-md text-primary" data-i18n="adv2_title">Zero Tax SEZ</h4>
+          <ul class="space-y-1.5 font-body-md text-secondary">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary flex-shrink-0">check_circle</span> <span data-i18n="adv2_li1">0% Corporate Tax</span></li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary flex-shrink-0">check_circle</span> <span data-i18n="adv2_li2">0% VAT</span></li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-primary flex-shrink-0">check_circle</span> <span data-i18n="adv2_li3">0% Customs Duties</span></li>
+          </ul>
+        </div>
+      </div>
+      <!-- 02 Raw Materials -->
+      <div class="bento-card bg-surface-container-lowest border border-outline/10 rounded-xl overflow-hidden shadow-sm">
+        <div class="h-36 md:h-40 overflow-hidden relative">
+          <div class="w-full h-full bg-secondary-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-6xl text-primary/20">science</span>
+          </div>
+          <div class="absolute bottom-4 left-4 bg-primary text-on-primary px-3 py-1 font-data-mono text-xs">02</div>
+        </div>
+        <div class="p-5 md:p-6 space-y-3 md:space-y-4">
+          <h4 class="font-headline-md text-headline-md text-primary" data-i18n="adv3_title">Raw Materials</h4>
+          <p class="font-body-md text-secondary" data-i18n="adv3_desc">Kazakhstan holds 19/34 materials on the EU Critical Raw Materials list, including Silicon &amp; Gallium.</p>
+        </div>
+      </div>
+      <!-- 03 AIFC -->
+      <div class="bento-card bg-surface-container-lowest border border-outline/10 rounded-xl overflow-hidden shadow-sm">
+        <div class="h-36 md:h-40 overflow-hidden relative">
+          <img alt="Modern financial architecture of AIFC in Kazakhstan" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN_4ZfnSg1YdbfsG4MrNIxJtaV2DiRqqdg_SN7lTGQg5Oi5csHrc0EiMYnpAXbw9DR_gZaauXAgW-e9axEkeLJNRHs5UHMXn7z1odlM3JZXICmnHeIA7gOe7IKQkB6o8t8WeDeL1YlUKyGi5VAy2tNAyvCT4FPRHFVb9CVLvGFXrNSxg2-_7O5T0G3ziDUxc8PYBFQ97Gd3M7pHwUBA8BEt97VYNTL0PYeIzg95gDg3G1IUAakFxqJJIQOP0ZC0F_CTD1q90nGAjYb"/>
+          <div class="absolute inset-0 bg-primary/20"></div>
+          <div class="absolute bottom-4 left-4 bg-primary text-on-primary px-3 py-1 font-data-mono text-xs">03</div>
+        </div>
+        <div class="p-5 md:p-6 space-y-3 md:space-y-4">
+          <h4 class="font-headline-md text-headline-md text-primary" data-i18n="adv1_title">AIFC Hub</h4>
+          <p class="font-body-md text-secondary" data-i18n="adv1_desc">A globally recognized financial and legal hub operating under English Common Law.</p>
+        </div>
+      </div>
+      <!-- 04 Talent Pipeline -->
+      <div class="bento-card bg-surface-container-lowest border border-outline/10 rounded-xl overflow-hidden shadow-sm">
+        <div class="h-36 md:h-40 overflow-hidden relative">
+          <div class="w-full h-full bg-surface-variant flex items-center justify-center">
+            <span class="material-symbols-outlined text-6xl text-primary/30">school</span>
+          </div>
+          <div class="absolute bottom-4 left-4 bg-primary text-on-primary px-3 py-1 font-data-mono text-xs">04</div>
+        </div>
+        <div class="p-5 md:p-6 space-y-3 md:space-y-4">
+          <h4 class="font-headline-md text-headline-md text-primary" data-i18n="adv4_title">Talent Pipeline</h4>
+          <p class="font-body-md text-secondary" data-i18n="adv4_desc">~50,000 STEM graduates per year from top universities like Nazarbayev University.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OASIS Ecosystem -->
+<section class="py-16 md:py-24 bg-primary text-on-primary relative overflow-hidden" id="ecosystem">
+  <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none hidden lg:block">
+    <svg class="w-full h-full" viewbox="0 0 400 400">
+      <circle cx="200" cy="200" fill="none" r="150" stroke="white" stroke-dasharray="10 5" stroke-width="0.5"></circle>
+      <circle cx="200" cy="200" fill="none" r="100" stroke="white" stroke-width="0.5"></circle>
+    </svg>
+  </div>
+  <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <!-- Orbit diagram — desktop only -->
+      <div class="hidden lg:flex relative order-2 lg:order-1 justify-center">
+        <div class="relative w-full max-w-[500px] aspect-square flex items-center justify-center">
+          <div class="w-40 h-40 bg-on-primary/10 rounded-full flex items-center justify-center border border-on-primary/20 z-10 backdrop-blur-md">
+            <img alt="High-tech semiconductor manufacturing facility (OSAT) central node" class="w-32 h-32 object-contain rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz0NezA-VX3Eadg4a0puRH8NCIQfSLRzcxbaWOAc17x6STK67l8bDuNJ5Gn6A6EofTnWBYy9P5EMS2Sla24G721e7ipyPOyKFJSAxdsZDOONKCuza1u9ZlSNY6zMScDw-cpa15bg6OQVjBb3be_RzB7h8h7Sh5IEI80gn3kGgNILok68z-sjAXKnSakK7Xwsc-3vqcRpQr0U8ZgdL0EVUPwfLlQdK9M79RIUN22er20UwcjwL0JRKPVBgPEZVg7K5pmmIjlFUHSsc8"/>
+          </div>
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-16 bg-tertiary-fixed text-on-tertiary-fixed rounded-full flex items-center justify-center font-bold text-xl shadow-lg shadow-tertiary-fixed/20 border-2 border-on-primary/20">1</div>
+          <div class="absolute top-1/4 right-0 w-16 h-16 bg-on-primary/5 rounded-full flex items-center justify-center border border-on-primary/30">2</div>
+          <div class="absolute bottom-1/4 right-0 w-16 h-16 bg-on-primary/5 rounded-full flex items-center justify-center border border-on-primary/30">3</div>
+          <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-16 bg-on-primary/5 rounded-full flex items-center justify-center border border-on-primary/30">4</div>
+          <div class="absolute bottom-1/4 left-0 w-16 h-16 bg-on-primary/5 rounded-full flex items-center justify-center border border-on-primary/30">5</div>
+          <div class="absolute top-1/4 left-0 w-16 h-16 bg-on-primary/5 rounded-full flex items-center justify-center border border-on-primary/30">6</div>
+          <div class="absolute top-[10%] right-[10%] w-16 h-16 bg-on-primary/5 rounded-full flex items-center justify-center border border-on-primary/30">7</div>
+        </div>
+      </div>
+      <!-- Ecosystem list -->
+      <div class="order-1 lg:order-2 space-y-6 md:space-y-8">
+        <h2 class="font-display-lg text-[1.75rem] sm:text-3xl md:text-display-lg leading-tight" data-i18n="eco_title">OASIS Silicon Cluster Ecosystem</h2>
+        <div class="grid gap-3 md:gap-4">
+          <div class="p-4 bg-on-primary/5 border-l-4 border-tertiary-fixed rounded flex items-start gap-4">
+            <span class="font-data-mono text-tertiary-fixed flex-shrink-0">01</span>
+            <div>
+              <p class="font-headline-md text-body-lg font-bold">ENTEVA MICROSYSTEMS</p>
+              <p class="text-on-primary/70 text-sm md:text-base" data-i18n="eco1_desc">Strategic assembly, testing, and packaging center.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3 md:gap-4">
+            <div class="p-3 md:p-4 bg-on-primary/5 rounded border border-on-primary/10">
+              <span class="font-data-mono text-primary-fixed-dim text-xs">02</span>
+              <p class="font-bold text-sm mt-1">Oasis Academy</p>
+              <p class="text-xs opacity-70 mt-0.5" data-i18n="eco2_desc">Engineering education and workforce development.</p>
+            </div>
+            <div class="p-3 md:p-4 bg-on-primary/5 rounded border border-on-primary/10">
+              <span class="font-data-mono text-primary-fixed-dim text-xs">03</span>
+              <p class="font-bold text-sm mt-1">Oasis Labs</p>
+              <p class="text-xs opacity-70 mt-0.5" data-i18n="eco3_desc">Applied R&amp;D center.</p>
+            </div>
+            <div class="p-3 md:p-4 bg-on-primary/5 rounded border border-on-primary/10">
+              <span class="font-data-mono text-primary-fixed-dim text-xs">04</span>
+              <p class="font-bold text-sm mt-1">Oasis Bridge</p>
+              <p class="text-xs opacity-70 mt-0.5" data-i18n="eco4_desc">Technology transfer and commercialization.</p>
+            </div>
+            <div class="p-3 md:p-4 bg-on-primary/5 rounded border border-on-primary/10">
+              <span class="font-data-mono text-primary-fixed-dim text-xs">05</span>
+              <p class="font-bold text-sm mt-1">Oasis Silicon Studio</p>
+              <p class="text-xs opacity-70 mt-0.5" data-i18n="eco5_desc">Chip design center.</p>
+            </div>
+            <div class="p-3 md:p-4 bg-on-primary/5 rounded border border-on-primary/10">
+              <span class="font-data-mono text-primary-fixed-dim text-xs">06</span>
+              <p class="font-bold text-sm mt-1">Qanat Quantum</p>
+              <p class="text-xs opacity-70 mt-0.5" data-i18n="eco6_desc">Quantum technologies.</p>
+            </div>
+            <div class="p-3 md:p-4 bg-on-primary/5 rounded border border-on-primary/10">
+              <span class="font-data-mono text-primary-fixed-dim text-xs">07</span>
+              <p class="font-bold text-sm mt-1">MEMS FAB</p>
+              <p class="text-xs opacity-70 mt-0.5" data-i18n="eco7_desc">Micro-electromechanical systems fabrication.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Infrastructure -->
+<section class="relative py-16 md:py-0 md:min-h-[700px] md:flex md:items-center" id="technology">
+  <div class="absolute inset-0 z-0">
+    <img alt="Smart industrial park with digital twin interface and green energy infrastructure" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9H1bobxd1gm6f4dzPBdc_JRyHxKtuD7olG03E3tQZaMnAAHJ6eUELAx3nCgCv08pcDUVuOsoOl5A4wTWfsykYZP25iZdbLgrYnJv3NGPTdc0Dx5PCqqnoq6_8pNe5nRW6RAe1r4SIbxwFqozHfPmVcRrDqqOwSn1UYPleOca1HRTVGd83q29cCDnaFqlepbKniwJF-bNwsA_rqsP62ObzP5OvihJD4BlIvkCdUUIMD5Q4W-x5d5Yzl3JUQZyB_vOA7A5dxl29eGrs"/>
+    <div class="absolute inset-0 bg-primary/70 md:bg-primary/60 lg:bg-gradient-to-l lg:from-primary lg:via-primary/30 lg:to-transparent"></div>
+  </div>
+  <div class="relative z-10 max-w-container-max mx-auto px-4 md:px-margin-desktop w-full md:grid md:grid-cols-2">
+    <div class="hidden md:block"></div>
+    <div class="glass-panel p-6 md:p-10 lg:p-12 rounded-2xl text-on-primary space-y-8 md:space-y-10 lg:space-y-12">
+      <div class="space-y-3 md:space-y-4">
+        <h2 class="font-display-lg text-[1.75rem] sm:text-3xl md:text-display-lg leading-tight" data-i18n="tech_title">Infrastructure for the Future</h2>
+        <p class="font-body-lg text-primary-fixed-dim" data-i18n="tech_subtitle">Integrated high-tech clusters designed for sustainable and hyper-efficient manufacturing.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+        <div class="space-y-2">
+          <h4 class="font-bold text-on-primary flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary-fixed-dim flex-shrink-0">view_in_ar</span>
+            <span data-i18n="tech1_title">Digital Twin Core</span>
+          </h4>
+          <p class="text-sm text-on-primary/70" data-i18n="tech1_desc">Virtual replicas for real-time production simulation and predictive analytics.</p>
+        </div>
+        <div class="space-y-2">
+          <h4 class="font-bold text-on-primary flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary-fixed-dim flex-shrink-0">factory</span>
+            <span data-i18n="tech2_title">Smart Factories</span>
+          </h4>
+          <p class="text-sm text-on-primary/70" data-i18n="tech2_desc">Modular production buildings ready to customize for every resident company.</p>
+        </div>
+        <div class="space-y-2">
+          <h4 class="font-bold text-on-primary flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary-fixed-dim flex-shrink-0">psychology</span>
+            <span data-i18n="tech3_title">AI Digital Platform</span>
+          </h4>
+          <p class="text-sm text-on-primary/70" data-i18n="tech3_desc">Autonomous logistics and supply chain orchestration for maximum throughput.</p>
+        </div>
+        <div class="space-y-2">
+          <h4 class="font-bold text-on-primary flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary-fixed-dim flex-shrink-0">eco</span>
+            <span data-i18n="tech4_title">ESG Energy Process</span>
+          </h4>
+          <p class="text-sm text-on-primary/70" data-i18n="tech4_desc">Solar and wind integration, energy-efficient buildings, and circular waste systems.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Future Outlook -->
+<section class="py-16 md:py-24 bg-surface text-primary relative overflow-hidden">
+  <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop">
+    <div class="mb-10 md:mb-16">
+      <h2 class="font-display-lg text-[1.75rem] sm:text-3xl md:text-display-lg mb-3 md:mb-4 leading-tight" data-i18n="future_title">The World Is Moving Faster</h2>
+      <p class="font-body-lg text-secondary max-w-2xl" data-i18n="future_subtitle">We are positioning Kazakhstan at the convergence of three major technological waves.</p>
+    </div>
+    <div class="relative">
+      <div class="absolute top-1/2 left-0 w-full h-1 bg-primary/10 -translate-y-1/2 hidden md:block"></div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-gutter relative z-10">
+        <div class="bg-white p-6 md:p-8 border border-outline/10 rounded-xl space-y-4 md:space-y-6 shadow-sm">
+          <div class="inline-block px-4 py-1 bg-primary text-on-primary font-data-mono text-sm rounded">2026</div>
+          <div class="space-y-2">
+            <h3 class="font-display-lg text-headline-md text-primary" data-i18n="future1_title">Robotics</h3>
+            <p class="font-body-md text-secondary" data-i18n="future1_desc">Autonomous industrial systems and swarm micro-manufacturing hubs.</p>
+          </div>
+          <div class="pt-3 md:pt-4 border-t border-outline/10">
+            <span class="font-data-mono text-error font-bold" data-i18n="future1_metric">x10 Faster</span>
+            <p class="text-xs text-secondary mt-0.5" data-i18n="future1_metric_label">Go-to-market acceleration</p>
+          </div>
+        </div>
+        <div class="bg-white p-6 md:p-8 border border-outline/10 rounded-xl space-y-4 md:space-y-6 shadow-md md:-translate-y-4">
+          <div class="inline-block px-4 py-1 bg-primary text-on-primary font-data-mono text-sm rounded">2030</div>
+          <div class="space-y-2">
+            <h3 class="font-display-lg text-headline-md text-primary" data-i18n="future2_title">Quantum</h3>
+            <p class="font-body-md text-secondary" data-i18n="future2_desc">Commercial quantum sensing and secure communication infrastructure.</p>
+          </div>
+          <div class="pt-3 md:pt-4 border-t border-outline/10">
+            <span class="font-data-mono text-error font-bold" data-i18n="future2_metric">x5 Shorter</span>
+            <p class="text-xs text-secondary mt-0.5" data-i18n="future2_metric_label">Cycle from idea to product</p>
+          </div>
+        </div>
+        <div class="bg-white p-6 md:p-8 border border-outline/10 rounded-xl space-y-4 md:space-y-6 shadow-sm">
+          <div class="inline-block px-4 py-1 bg-primary text-on-primary font-data-mono text-sm rounded">2035</div>
+          <div class="space-y-2">
+            <h3 class="font-display-lg text-headline-md text-primary" data-i18n="future3_title">AGI</h3>
+            <p class="font-body-md text-secondary" data-i18n="future3_desc">Advanced General Intelligence integration for complex design-to-fab flows.</p>
+          </div>
+          <div class="pt-3 md:pt-4 border-t border-outline/10">
+            <span class="font-data-mono text-error font-bold" data-i18n="future3_metric">x5 Tech Gap</span>
+            <p class="text-xs text-secondary mt-0.5" data-i18n="future3_metric_label">Strategic sovereign advantage</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 md:py-24 bg-primary-container text-on-primary-container">
+  <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop text-center space-y-8 md:space-y-12">
+    <img alt="Enteva Microsystems hexagonal identity mark" class="w-16 md:w-24 mx-auto opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB9j3V58oT-Oadd4Dguk5P5cNhJTyGCusTFdi3I-4TS2ddzUEncPD7K6uZPTYeZq-5YErjHSzn0kzqvk0Vl8gbg3HZKXKUedIkk_28OvqIYdfP6HiFy11yG7UlvSBW0t5eSsxaVRHr-bcxKszXyV8s8Yhj93JnpQLEsXrg-1wJMmlPbu8rlmUQcEzew53Lkbos0ShWy52j2_Ty7HSNfD2Z-akul4jzRtK2DiuBgn_9Rw2IJCQ9bV4LjvANoz3mRVFLUkmL9UB29KN9"/>
+    <div class="space-y-3 md:space-y-4">
+      <h2 class="font-display-lg text-[1.75rem] sm:text-3xl md:text-display-lg text-on-primary leading-tight" data-i18n="cta_title">Join the Future of Semiconductors</h2>
+      <p class="font-body-lg text-on-primary/70 max-w-2xl mx-auto" data-i18n="cta_desc">Investment opportunities and partnership programs for Phase 01 are now open.</p>
+    </div>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
+      <button class="w-full sm:w-auto bg-tertiary-fixed text-on-tertiary-fixed font-label-caps text-label-caps px-8 md:px-12 py-4 md:py-5 rounded-lg text-base md:text-lg shadow-xl shadow-black/20 hover:scale-105 transition-transform active:scale-95" data-i18n="cta_btn1">Contact Us</button>
+      <button class="w-full sm:w-auto border border-on-primary/30 text-on-primary font-label-caps text-label-caps px-8 md:px-12 py-4 md:py-5 rounded-lg text-base md:text-lg hover:bg-on-primary/5 transition-colors" data-i18n="cta_btn2">Download Prospectus</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-on-primary w-full py-10 md:py-12">
+  <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-6 md:gap-base">
+    <div class="flex flex-col items-center md:items-start gap-2">
+      <span class="font-headline-md text-headline-md text-on-primary">Enteva</span>
+      <p class="font-body-md text-body-md text-on-primary/70 text-center md:text-left" data-i18n="footer_copy">© 2026 Enteva Microsystems. All rights reserved.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-4 md:gap-8 font-body-md text-body-md">
+      <a class="text-on-primary/70 hover:text-tertiary-fixed transition-colors" href="#" data-i18n="footer_privacy">Privacy Policy</a>
+      <a class="text-on-primary/70 hover:text-tertiary-fixed transition-colors" href="#" data-i18n="footer_terms">Terms of Service</a>
+      <a class="text-on-primary/70 hover:text-tertiary-fixed transition-colors" href="#" data-i18n="footer_legal">Legal Notice</a>
+      <a class="text-on-primary/70 hover:text-tertiary-fixed transition-colors underline" href="#" data-i18n="footer_contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    en: {
+      nav_industry: "Industry",
+      nav_advantages: "Advantages",
+      nav_ecosystem: "Ecosystem",
+      nav_technology: "Technology",
+      nav_contact: "Contact Us",
+      hero_badge: "Central Asia's Tech Frontier",
+      hero_title: "The First Microelectronics <br/> Cluster in Central Asia",
+      hero_location: "Astana · Kazakhstan · AIFC · 2026",
+      hero_cta1: "Explore Ecosystem",
+      hero_cta2: "View Roadmap",
+      hero_stat1_label: "Status",
+      hero_stat1_val: "Phase 01 Active",
+      hero_stat2_label: "Impact",
+      hero_stat2_val: "$20B FDI Target",
+      hero_stat3_label: "Jurisdiction",
+      hero_stat3_val: "Common Law (AIFC)",
+      industry_title: "The World Has Changed",
+      industry_subtitle: "Semiconductors are no longer just an industry—they're a national security issue.",
+      industry_stat1: "Semiconductor companies are now worth twice as much as oil giants (2023 market cap comparison).",
+      industry_stat2: "The global chip market is expected to hit $1 trillion by 2030 (McKinsey).",
+      industry_gap_label: "Current Gap: Central Asia",
+      industry_gap_desc: "Dozens of countries have national chip programs. Central Asia has zero. We are filling that void.",
+      adv_label: "Strategic Integration",
+      adv_title: "Kazakhstan: Strategic Hub for Microelectronics",
+      adv1_title: "AIFC Hub",
+      adv1_desc: "A globally recognized financial and legal hub operating under English Common Law.",
+      adv2_title: "Zero Tax SEZ",
+      adv2_li1: "0% Corporate Tax",
+      adv2_li2: "0% VAT",
+      adv2_li3: "0% Customs Duties",
+      adv3_title: "Raw Materials",
+      adv3_desc: "Kazakhstan holds 19/34 materials on the EU Critical Raw Materials list, including Silicon & Gallium.",
+      adv4_title: "Talent Pipeline",
+      adv4_desc: "~50,000 STEM graduates per year from top universities like Nazarbayev University.",
+      eco_title: "OASIS Silicon Cluster Ecosystem",
+      eco1_desc: "Strategic assembly, testing, and packaging center.",
+      eco2_desc: "Engineering education and workforce development.",
+      eco3_desc: "Applied R&D center.",
+      eco4_desc: "Technology transfer and commercialization.",
+      eco5_desc: "Chip design center.",
+      eco6_desc: "Quantum technologies.",
+      eco7_desc: "Micro-electromechanical systems fabrication.",
+      tech_title: "Infrastructure for the Future",
+      tech_subtitle: "Integrated high-tech clusters designed for sustainable and hyper-efficient manufacturing.",
+      tech1_title: "Digital Twin Core",
+      tech1_desc: "Virtual replicas for real-time production simulation and predictive analytics.",
+      tech2_title: "Smart Factories",
+      tech2_desc: "Modular production buildings ready to customize for every resident company.",
+      tech3_title: "AI Digital Platform",
+      tech3_desc: "Autonomous logistics and supply chain orchestration for maximum throughput.",
+      tech4_title: "ESG Energy Process",
+      tech4_desc: "Solar and wind integration, energy-efficient buildings, and circular waste systems.",
+      future_title: "The World Is Moving Faster",
+      future_subtitle: "We are positioning Kazakhstan at the convergence of three major technological waves.",
+      future1_title: "Robotics",
+      future1_desc: "Autonomous industrial systems and swarm micro-manufacturing hubs.",
+      future1_metric: "x10 Faster",
+      future1_metric_label: "Go-to-market acceleration",
+      future2_title: "Quantum",
+      future2_desc: "Commercial quantum sensing and secure communication infrastructure.",
+      future2_metric: "x5 Shorter",
+      future2_metric_label: "Cycle from idea to product",
+      future3_title: "AGI",
+      future3_desc: "Advanced General Intelligence integration for complex design-to-fab flows.",
+      future3_metric: "x5 Tech Gap",
+      future3_metric_label: "Strategic sovereign advantage",
+      cta_title: "Join the Future of Semiconductors",
+      cta_desc: "Investment opportunities and partnership programs for Phase 01 are now open.",
+      cta_btn1: "Contact Us",
+      cta_btn2: "Download Prospectus",
+      footer_copy: "© 2026 Enteva Microsystems. All rights reserved.",
+      footer_privacy: "Privacy Policy",
+      footer_terms: "Terms of Service",
+      footer_legal: "Legal Notice",
+      footer_contact: "Contact"
+    },
+    ru: {
+      nav_industry: "Отрасль",
+      nav_advantages: "Преимущества",
+      nav_ecosystem: "Экосистема",
+      nav_technology: "Технологии",
+      nav_contact: "Связаться",
+      hero_badge: "Технологический Рубеж Центральной Азии",
+      hero_title: "Первый Кластер Микроэлектроники <br/> в Центральной Азии",
+      hero_location: "Астана · Казахстан · МФЦА · 2026",
+      hero_cta1: "Изучить Экосистему",
+      hero_cta2: "Дорожная Карта",
+      hero_stat1_label: "Статус",
+      hero_stat1_val: "Фаза 01 Активна",
+      hero_stat2_label: "Цель",
+      hero_stat2_val: "$20 млрд ПИИ",
+      hero_stat3_label: "Юрисдикция",
+      hero_stat3_val: "Английское право (МФЦА)",
+      industry_title: "Мир Изменился",
+      industry_subtitle: "Полупроводники — это уже не просто отрасль. Это вопрос национальной безопасности.",
+      industry_stat1: "Компании по производству полупроводников теперь стоят вдвое больше нефтяных гигантов (сравнение капитализации 2023 г.).",
+      industry_stat2: "Ожидается, что мировой рынок чипов достигнет $1 триллиона к 2030 году (McKinsey).",
+      industry_gap_label: "Текущий Пробел: Центральная Азия",
+      industry_gap_desc: "Десятки стран имеют национальные чиповые программы. У Центральной Азии их нет. Мы заполняем этот пробел.",
+      adv_label: "Стратегическая Интеграция",
+      adv_title: "Казахстан: стратегический центр микроэлектроники",
+      adv1_title: "Хаб МФЦА",
+      adv1_desc: "Глобально признанный финансово-правовой хаб, работающий по нормам английского права.",
+      adv2_title: "СЭЗ с нулевым налогом",
+      adv2_li1: "0% корпоративный налог",
+      adv2_li2: "0% НДС",
+      adv2_li3: "0% таможенные пошлины",
+      adv3_title: "Сырьевые материалы",
+      adv3_desc: "Казахстан располагает 19 из 34 материалов из списка критических сырьевых материалов ЕС, включая кремний и галлий.",
+      adv4_title: "Кадровый потенциал",
+      adv4_desc: "~50 000 выпускников по STEM в год из ведущих вузов, включая Назарбаев Университет.",
+      eco_title: "Экосистема OASIS Silicon Cluster",
+      eco1_desc: "Стратегический центр сборки, тестирования и упаковки.",
+      eco2_desc: "Инженерное образование и развитие кадрового потенциала.",
+      eco3_desc: "Прикладной R&D центр.",
+      eco4_desc: "Трансфер и коммерциализация технологий.",
+      eco5_desc: "Дизайн-центр микросхем.",
+      eco6_desc: "Квантовые технологии.",
+      eco7_desc: "Производство микроэлектромеханических систем.",
+      tech_title: "Инфраструктура Будущего",
+      tech_subtitle: "Интегрированные высокотехнологичные кластеры для устойчивого и высокоэффективного производства.",
+      tech1_title: "Ядро Цифрового Двойника",
+      tech1_desc: "Виртуальные копии для симуляции производства в реальном времени и прогностической аналитики.",
+      tech2_title: "Умные Заводы",
+      tech2_desc: "Модульные производственные здания, готовые к адаптации под каждую резидентную компанию.",
+      tech3_title: "Цифровая Платформа ИИ",
+      tech3_desc: "Автономная логистика и управление цепочкой поставок для максимальной пропускной способности.",
+      tech4_title: "ESG Энергопроцессы",
+      tech4_desc: "Интеграция солнечной и ветровой энергии, энергоэффективные здания и системы замкнутого цикла.",
+      future_title: "Мир Движется Быстрее",
+      future_subtitle: "Мы позиционируем Казахстан на пересечении трёх крупных технологических волн.",
+      future1_title: "Робототехника",
+      future1_desc: "Автономные промышленные системы и роевые центры микропроизводства.",
+      future1_metric: "x10 Быстрее",
+      future1_metric_label: "Ускорение выхода на рынок",
+      future2_title: "Квантовые технологии",
+      future2_desc: "Коммерческое квантовое зондирование и инфраструктура защищённой связи.",
+      future2_metric: "x5 Короче",
+      future2_metric_label: "Цикл от идеи до продукта",
+      future3_title: "ИОИ",
+      future3_desc: "Интеграция продвинутого общего интеллекта для сложных потоков проектирования и производства.",
+      future3_metric: "x5 Технол. разрыв",
+      future3_metric_label: "Стратегическое суверенное преимущество",
+      cta_title: "Присоединяйтесь к будущему полупроводников",
+      cta_desc: "Инвестиционные возможности и партнёрские программы Фазы 01 открыты.",
+      cta_btn1: "Связаться",
+      cta_btn2: "Скачать Проспект",
+      footer_copy: "© 2026 Enteva Microsystems. Все права защищены.",
+      footer_privacy: "Политика конфиденциальности",
+      footer_terms: "Условия использования",
+      footer_legal: "Правовое уведомление",
+      footer_contact: "Контакты"
+    },
+    kz: {
+      nav_industry: "Сала",
+      nav_advantages: "Артықшылықтар",
+      nav_ecosystem: "Экожүйе",
+      nav_technology: "Технологиялар",
+      nav_contact: "Байланыс",
+      hero_badge: "Орталық Азияның Технологиялық Тірегі",
+      hero_title: "Орталық Азиядағы Алғашқы <br/> Микроэлектроника Кластері",
+      hero_location: "Астана · Қазақстан · ХҚКО · 2026",
+      hero_cta1: "Экожүйені Зерттеу",
+      hero_cta2: "Жол Картасы",
+      hero_stat1_label: "Мәртебе",
+      hero_stat1_val: "01-фаза Белсенді",
+      hero_stat2_label: "Мақсат",
+      hero_stat2_val: "$20 млрд ТСИ",
+      hero_stat3_label: "Юрисдикция",
+      hero_stat3_val: "Ағылшын заңы (ХҚКО)",
+      industry_title: "Әлем Өзгерді",
+      industry_subtitle: "Жартылай өткізгіштер енді тек сала ғана емес — бұл ұлттық қауіпсіздік мәселесі.",
+      industry_stat1: "Жартылай өткізгіш компаниялар мұнай алыптарынан екі есе қымбат (2023 ж. нарықтық капиталдандыру).",
+      industry_stat2: "Дүниежүзілік чип нарығының 2030 жылға қарай $1 трлн-ға жетуі күтілуде (McKinsey).",
+      industry_gap_label: "Ағымдағы Олқылық: Орталық Азия",
+      industry_gap_desc: "Ондаған елдерде ұлттық чип бағдарламалары бар. Орталық Азияда олар жоқ. Біз осы олқылықты толтырамыз.",
+      adv_label: "Стратегиялық Интеграция",
+      adv_title: "Қазақстан: микроэлектрониканың стратегиялық хабы",
+      adv1_title: "ХҚКО Хабы",
+      adv1_desc: "Ағылшын Common Law жүйесі бойынша жұмыс істейтін жаһандық танылған қаржы-заңдық хаб.",
+      adv2_title: "Нөлдік Салықты ЕЭА",
+      adv2_li1: "0% корпоративтік салық",
+      adv2_li2: "0% ҚҚС",
+      adv2_li3: "0% кедендік баж",
+      adv3_title: "Шикізат Материалдары",
+      adv3_desc: "Қазақстанда ЕО-ның Сыни Шикізат тізіміндегі 34 материалдың 19-ы бар, соның ішінде Кремний мен Галлий.",
+      adv4_title: "Кадр Желісі",
+      adv4_desc: "Назарбаев Университеті сияқты жетекші жоғары оқу орындарынан жылына ~50 000 STEM түлегі.",
+      eco_title: "OASIS Silicon Cluster Экожүйесі",
+      eco1_desc: "Стратегиялық жинау, тестілеу және орау орталығы.",
+      eco2_desc: "Инженерлік білім беру және кадр дамыту.",
+      eco3_desc: "Қолданбалы ғылыми-зерттеу орталығы.",
+      eco4_desc: "Технологияны беру және коммерциялау.",
+      eco5_desc: "Микросхема жобалау орталығы.",
+      eco6_desc: "Кванттық технологиялар.",
+      eco7_desc: "Микроэлектромеханикалық жүйелерді дайындау.",
+      tech_title: "Болашаққа Арналған Инфрақұрылым",
+      tech_subtitle: "Тұрақты және жоғары тиімді өндіріске арналған интеграцияланған жоғары технологиялық кластерлер.",
+      tech1_title: "Цифрлық Егіздің Өзегі",
+      tech1_desc: "Нақты уақытта өндірісті модельдеу және болжамды аналитика үшін виртуалды көшірмелер.",
+      tech2_title: "Зерде Зауыттар",
+      tech2_desc: "Әр резидент компанияға бейімдеуге дайын модульдік өндірістік ғимараттар.",
+      tech3_title: "ЖИ Цифрлық Платформасы",
+      tech3_desc: "Максималды өткізу қабілеті үшін автономды логистика және жеткізу тізбегін оркестрациялау.",
+      tech4_title: "ESG Энергия Процестері",
+      tech4_desc: "Күн мен жел энергиясын біріктіру, энергия үнемдейтін ғимараттар және айналмалы қалдық жүйелері.",
+      future_title: "Әлем Жылдамырақ Қозғалуда",
+      future_subtitle: "Біз Қазақстанды үш негізгі технологиялық толқынның қиылысуында орналастырамыз.",
+      future1_title: "Робототехника",
+      future1_desc: "Автономды өндірістік жүйелер және жиын микроөндіріс хабтары.",
+      future1_metric: "x10 Жылдамырақ",
+      future1_metric_label: "Нарыққа шығу жылдамдауы",
+      future2_title: "Кванттық Технологиялар",
+      future2_desc: "Коммерциялық кванттық сезімталдық және қауіпсіз байланыс инфрақұрылымы.",
+      future2_metric: "x5 Қысқарақ",
+      future2_metric_label: "Идеядан өнімге дейінгі цикл",
+      future3_title: "ЖЖИ",
+      future3_desc: "Күрделі жобалаудан өндіріске дейінгі ағындар үшін жетілдірілген жалпы интеллектті интеграциялау.",
+      future3_metric: "x5 Техн. Алшақтық",
+      future3_metric_label: "Стратегиялық егемендік артықшылық",
+      cta_title: "Жартылай Өткізгіштердің Болашағына Қосылыңыз",
+      cta_desc: "01-фазаға арналған инвестициялық мүмкіндіктер мен серіктестік бағдарламалары ашылды.",
+      cta_btn1: "Байланысу",
+      cta_btn2: "Проспектіні Жүктеу",
+      footer_copy: "© 2026 Enteva Microsystems. Барлық құқықтар қорғалған.",
+      footer_privacy: "Құпиялылық саясаты",
+      footer_terms: "Қызмет шарттары",
+      footer_legal: "Заңдық ескерту",
+      footer_contact: "Байланыс"
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'en';
+
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('mobile-menu-icon');
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden', isOpen);
+    icon.textContent = isOpen ? 'menu' : 'close';
+  }
+
+  function closeMobileMenu() {
+    document.getElementById('mobile-menu').classList.add('hidden');
+    document.getElementById('mobile-menu-icon').textContent = 'menu';
+  }
+
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    document.documentElement.lang = lang;
+    applyTranslations();
+    updateLangButtons();
+  }
+
+  function applyTranslations() {
+    const t = translations[currentLang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    const cta1 = document.querySelector('[data-i18n="hero_cta1"]');
+    if (cta1) {
+      const icon = cta1.querySelector('.material-symbols-outlined');
+      cta1.textContent = t['hero_cta1'] + ' ';
+      if (icon) cta1.appendChild(icon);
+    }
+  }
+
+  function updateLangButtons() {
+    ['en', 'ru', 'kz'].forEach(l => {
+      document.querySelectorAll(`.${l}-btn`).forEach(btn => {
+        btn.classList.toggle('active', l === currentLang);
+      });
+    });
+  }
+
+  // Parallax — skip on mobile for performance
+  if (window.innerWidth >= 768) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const heroImg = document.querySelector('header img');
+      if (heroImg) heroImg.style.transform = `translateY(${scrolled * 0.4}px)`;
+    }, { passive: true });
+  }
+
+  // Intersection observer for bento cards
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+        entry.target.classList.remove('opacity-0', 'translate-y-10');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.bento-card').forEach(card => {
+    card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+    observer.observe(card);
+  });
+
+  // Init
+  applyTranslations();
+  updateLangButtons();
+</script>
+</body></html>
