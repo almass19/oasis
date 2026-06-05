@@ -158,7 +158,7 @@
       <div class="w-8 h-8 bg-primary rounded flex items-center justify-center flex-shrink-0">
         <span class="text-tertiary-fixed font-bold text-sm font-mono">O</span>
       </div>
-      <span class="font-display font-bold text-primary text-base md:text-lg tracking-tight leading-none">OASIS<br/><span class="text-xs font-semibold text-secondary tracking-wider">SILICON CLUSTER</span></span>
+      <span class="font-display font-bold text-primary text-sm md:text-base tracking-tight leading-tight">OASIS Silicon Cluster</span>
     </a>
 
     <!-- Desktop links -->
@@ -172,7 +172,7 @@
       <div class="flex items-center gap-0.5 border border-primary/20 rounded-lg p-1">
         <button onclick="setLang('ru')" class="lang-btn ru-btn text-primary px-2.5 py-1 rounded text-xs font-bold hover:bg-primary/10">RU</button>
         <button onclick="setLang('en')" class="lang-btn en-btn text-primary px-2.5 py-1 rounded text-xs font-bold hover:bg-primary/10">EN</button>
-        <button onclick="setLang('kz')" class="lang-btn kz-btn text-primary px-2.5 py-1 rounded text-xs font-bold hover:bg-primary/10">ҚАЗ</button>
+        <button onclick="setLang('kz')" class="lang-btn kz-btn text-primary px-2.5 py-1 rounded text-xs font-bold hover:bg-primary/10">KZ</button>
       </div>
     </div>
 
@@ -181,7 +181,7 @@
       <div class="flex items-center gap-0.5 border border-primary/20 rounded-lg p-0.5">
         <button onclick="setLang('ru')" class="lang-btn ru-btn text-primary px-2 py-1.5 rounded text-xs font-bold hover:bg-primary/10">RU</button>
         <button onclick="setLang('en')" class="lang-btn en-btn text-primary px-2 py-1.5 rounded text-xs font-bold hover:bg-primary/10">EN</button>
-        <button onclick="setLang('kz')" class="lang-btn kz-btn text-primary px-2 py-1.5 rounded text-xs font-bold hover:bg-primary/10">ҚАЗ</button>
+        <button onclick="setLang('kz')" class="lang-btn kz-btn text-primary px-2 py-1.5 rounded text-xs font-bold hover:bg-primary/10">KZ</button>
       </div>
       <button onclick="toggleMenu()" class="p-1.5 text-primary hover:bg-primary/5 rounded active:scale-95 transition-all">
         <span class="material-symbols-outlined text-2xl leading-none block" id="menu-icon">menu</span>
@@ -242,7 +242,6 @@
   <div class="scan-line"></div>
   <div class="relative z-10 max-w-container-max mx-auto px-4 md:px-margin-desktop w-full py-20 md:py-0">
     <div class="max-w-2xl space-y-6">
-      <p class="hero-el d100 font-mono text-xs tracking-[0.2em] uppercase text-primary-fixed-dim opacity-80" data-i18n="hero_location">Астана · МФЦА · 2026</p>
       <h1 class="hero-el d350 font-display font-bold text-on-primary leading-tight" style="font-size: clamp(2rem, 5vw, 3.5rem);">
         Oasis Silicon Cluster
       </h1>
@@ -263,43 +262,104 @@
 <section id="about" class="py-20 md:py-28 bg-surface">
   <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop">
 
-    <!-- Label -->
-    <div class="mb-12 md:mb-16">
+    <!-- Label + heading -->
+    <div class="mb-10 md:mb-14">
       <p class="label-animate text-xs font-bold tracking-[0.2em] uppercase text-primary mb-3 fade-up" data-i18n="about_label">О нас</p>
       <h2 class="font-display font-bold text-primary leading-tight fade-up" style="font-size: clamp(1.75rem, 4vw, 3rem);" data-i18n="about_h2">О кластере</h2>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+    <!-- Description text -->
+    <div class="max-w-3xl space-y-4 mb-12 fade-up">
+      <div class="w-12 h-1 bg-tertiary-fixed rounded-full"></div>
+      <p class="font-body text-lg leading-relaxed text-on-surface/80" data-i18n="about_cluster_desc">
+        OASIS Silicon Cluster — первый в Центральной Азии кластер микроэлектроники полного цикла, объединяющий исследования, проектирование микросхем, производство электронных компонентов, подготовку инженерных кадров и коммерциализацию технологий.
+      </p>
+      <p class="font-body text-base leading-relaxed text-secondary" data-i18n="about_cluster_desc2">
+        Кластер создает основу технологического суверенитета Казахстана, способствует развитию высокотехнологичной промышленности, привлечению международных инвестиций и формированию конкурентоспособной инновационной экосистемы мирового уровня.
+      </p>
+    </div>
 
-      <!-- Cluster description -->
-      <div class="space-y-5 fade-up">
-        <div class="rounded-xl overflow-hidden h-48 md:h-56">
-          <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=85"
-               alt="Semiconductor manufacturing" class="w-full h-full object-cover"/>
+    <!-- 3 key facts -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-14 stagger-row">
+      <div class="bg-surface-container rounded-2xl p-6 space-y-3 border border-outline/10 fade-up">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-xl">location_on</span>
         </div>
-        <div class="w-12 h-1 bg-tertiary-fixed rounded-full"></div>
-        <p class="font-body text-lg leading-relaxed text-on-surface/80" data-i18n="about_cluster_desc">
-          Oasis Silicon Cluster — первый в Центральной Азии технологический кластер, объединяющий компании в области производства и тестирования микросхем, квантовых технологий, проектирования чипов, прикладных исследований и инженерного образования.
-        </p>
-        <p class="font-body text-base leading-relaxed text-secondary" data-i18n="about_cluster_desc2">
-          Кластер создан для формирования суверенной базы микроэлектроники в регионе и привлечения глобальных технологических партнёров.
-        </p>
+        <h4 class="font-display font-bold text-primary text-base" data-i18n="fact1_title">Астана, Казахстан</h4>
+        <p class="text-sm text-secondary leading-relaxed" data-i18n="fact1_desc">Расположен в центре Евразии, на пересечении ключевых торговых маршрутов между Европой и Азией.</p>
       </div>
-
-      <!-- Enteva card -->
-      <div class="enteva-glow bg-primary rounded-2xl p-8 text-on-primary space-y-5 fade-up">
-        <div class="flex items-center gap-3">
-          <div class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded text-xs font-bold tracking-widest uppercase" data-i18n="about_flagship_badge">Флагманская компания</div>
+      <div class="bg-surface-container rounded-2xl p-6 space-y-3 border border-outline/10 fade-up">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-xl">handshake</span>
         </div>
-        <h3 class="font-display font-bold text-xl text-on-primary">Enteva Microsystems</h3>
-        <p class="font-body text-sm leading-relaxed text-on-primary/80" data-i18n="about_enteva_desc">
-          Высокотехнологичная компания, создающая первый в регионе центр упаковки и тестирования микросхем OSAT. Мы формируем ядро команды, которое станет основой для запуска Phase 1 производства, взаимодействия с глобальными технологическими партнёрами и подготовки инвестиционных материалов под масштабирование компании.
-        </p>
-        <div class="pt-2 border-t border-on-primary/10">
-          <p class="text-xs font-mono tracking-wider text-primary-fixed-dim uppercase">OSAT · Assembly &amp; Test</p>
+        <h4 class="font-display font-bold text-primary text-base" data-i18n="fact2_title">Международные партнёры</h4>
+        <p class="text-sm text-secondary leading-relaxed" data-i18n="fact2_desc">Сотрудничество с ведущими мировыми организациями в области микроэлектроники и полупроводников.</p>
+      </div>
+      <div class="bg-surface-container rounded-2xl p-6 space-y-3 border border-outline/10 fade-up">
+        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-xl">gavel</span>
+        </div>
+        <h4 class="font-display font-bold text-primary text-base" data-i18n="fact3_title">При базе МФЦА</h4>
+        <p class="text-sm text-secondary leading-relaxed" data-i18n="fact3_desc">Работает на базе английского права — международный стандарт для инвесторов и технологических компаний.</p>
+      </div>
+    </div>
+
+    <!-- Infrastructure overview -->
+    <div class="rounded-2xl overflow-hidden bg-primary fade-up">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1600&q=85"
+             alt="OASIS Silicon Cluster Infrastructure" class="w-full h-56 md:h-72 object-cover opacity-30"/>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-primary/60"></div>
+        <div class="absolute inset-0 p-6 md:p-10 flex flex-col justify-center">
+          <p class="text-xs font-bold tracking-[0.2em] uppercase text-primary-fixed-dim mb-4" data-i18n="infra_label">Инфраструктура кластера</p>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            <div class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-tertiary-fixed text-lg mt-0.5 flex-shrink-0">view_in_ar</span>
+              <div>
+                <p class="text-on-primary font-bold text-xs md:text-sm">Digital Twin Core</p>
+                <p class="text-on-primary/50 text-xs mt-0.5 hidden md:block" data-i18n="infra1">Цифровые двойники, предиктивная аналитика</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-tertiary-fixed text-lg mt-0.5 flex-shrink-0">factory</span>
+              <div>
+                <p class="text-on-primary font-bold text-xs md:text-sm">Smart Factories</p>
+                <p class="text-on-primary/50 text-xs mt-0.5 hidden md:block" data-i18n="infra2">Модульные производственные здания</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-tertiary-fixed text-lg mt-0.5 flex-shrink-0">science</span>
+              <div>
+                <p class="text-on-primary font-bold text-xs md:text-sm">R&amp;D Core</p>
+                <p class="text-on-primary/50 text-xs mt-0.5 hidden md:block" data-i18n="infra3">Лаборатории и инженерные центры</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-tertiary-fixed text-lg mt-0.5 flex-shrink-0">psychology</span>
+              <div>
+                <p class="text-on-primary font-bold text-xs md:text-sm">AI Digital Platform</p>
+                <p class="text-on-primary/50 text-xs mt-0.5 hidden md:block" data-i18n="infra4">Цифровая платформа управления</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-tertiary-fixed text-lg mt-0.5 flex-shrink-0">eco</span>
+              <div>
+                <p class="text-on-primary font-bold text-xs md:text-sm">ESG Energy Process</p>
+                <p class="text-on-primary/50 text-xs mt-0.5 hidden md:block" data-i18n="infra5">Солнечная и ветровая энергия</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="material-symbols-outlined text-tertiary-fixed text-lg mt-0.5 flex-shrink-0">local_shipping</span>
+              <div>
+                <p class="text-on-primary font-bold text-xs md:text-sm">Smart Export Hub</p>
+                <p class="text-on-primary/50 text-xs mt-0.5 hidden md:block" data-i18n="infra6">Мультимодальная логистика и экспорт</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -322,7 +382,7 @@
         </div>
         <div>
           <h3 class="font-display font-bold text-lg text-on-primary">Enteva Microsystems</h3>
-          <p class="text-sm text-on-primary/70 mt-2 leading-relaxed" data-i18n="eco1_desc">Стратегический центр сборки, тестирования и упаковки микросхем (OSAT).</p>
+          <p class="text-sm text-on-primary/70 mt-2 leading-relaxed" data-i18n="eco1_desc">Первая производственная платформа OASIS Silicon Cluster. Создание центра упаковки и тестирования микросхем (OSAT) в Казахстане.</p>
         </div>
         <div class="pt-2 border-t border-on-primary/10">
           <span class="text-xs font-mono tracking-wider text-primary-fixed-dim uppercase">Assembly · Test · Packaging</span>
@@ -606,147 +666,138 @@
 <script>
 const translations = {
   ru: {
-    nav_about: "О нас",
-    nav_eco: "Экосистема",
-    nav_partners: "Партнёры",
-    nav_news: "Новости",
-    nav_contact: "Контакты",
-    hero_location: "Астана · МФЦА · 2026",
+    nav_about: "О нас", nav_eco: "Экосистема", nav_partners: "Партнёры",
+    nav_news: "Новости", nav_contact: "Контакты",
     hero_subtitle: "Первый кластер микроэлектроники<br/>в Центральной Азии",
     hero_cta: "Узнать больше",
-    about_label: "О нас",
-    about_h2: "О кластере",
-    about_cluster_desc: "Oasis Silicon Cluster — первый в Центральной Азии технологический кластер, объединяющий компании в области производства и тестирования микросхем, квантовых технологий, проектирования чипов, прикладных исследований и инженерного образования.",
-    about_cluster_desc2: "Кластер создан для формирования суверенной базы микроэлектроники в регионе и привлечения глобальных технологических партнёров.",
-    about_flagship_badge: "Флагманская компания",
-    about_enteva_desc: "Высокотехнологичная компания, создающая первый в регионе центр упаковки и тестирования микросхем OSAT. Мы формируем ядро команды, которое станет основой для запуска Phase 1 производства, взаимодействия с глобальными технологическими партнёрами и подготовки инвестиционных материалов под масштабирование компании.",
-    eco_label: "Экосистема",
-    eco_h2: "Структура кластера",
-    eco1_desc: "Стратегический центр сборки, тестирования и упаковки микросхем (OSAT).",
-    eco2_desc: "Производство микроэлектромеханических систем.",
-    eco3_desc: "Квантовые технологии.",
-    eco4_desc: "Дизайн-центр микросхем.",
-    eco5_desc: "Инженерное образование и развитие кадров (Nomad Engineers).",
-    eco6_desc: "Прикладной R&D центр.",
-    eco7_desc: "Трансфер и коммерциализация технологий.",
-    partners_label: "Партнёры",
-    partners_h2: "Наши партнёры",
-    news_label: "Новости",
-    news_h2: "Новости",
+    about_label: "О нас", about_h2: "О кластере",
+    about_cluster_desc: "OASIS Silicon Cluster — первый в Центральной Азии кластер микроэлектроники полного цикла, объединяющий исследования, проектирование микросхем, производство электронных компонентов, подготовку инженерных кадров и коммерциализацию технологий.",
+    about_cluster_desc2: "Кластер создает основу технологического суверенитета Казахстана, способствует развитию высокотехнологичной промышленности, привлечению международных инвестиций и формированию конкурентоспособной инновационной экосистемы мирового уровня.",
+    fact1_title: "Астана, Казахстан",
+    fact1_desc: "Расположен в центре Евразии, на пересечении ключевых торговых маршрутов между Европой и Азией.",
+    fact2_title: "Международные партнёры",
+    fact2_desc: "Сотрудничество с ведущими мировыми организациями в области микроэлектроники и полупроводников.",
+    fact3_title: "При базе МФЦА",
+    fact3_desc: "Работает на базе английского права — международный стандарт для инвесторов и технологических компаний.",
+    infra_label: "Инфраструктура кластера",
+    infra1: "Цифровые двойники, предиктивная аналитика",
+    infra2: "Модульные производственные здания",
+    infra3: "Лаборатории и инженерные центры",
+    infra4: "Цифровая платформа управления",
+    infra5: "Солнечная и ветровая энергия",
+    infra6: "Мультимодальная логистика и экспорт",
+    eco_label: "Экосистема", eco_h2: "Структура кластера",
+    eco1_desc: "Первая производственная платформа OASIS Silicon Cluster. Создание центра упаковки и тестирования микросхем (OSAT) в Казахстане.",
+    eco2_desc: "Фабрика микроэлектромеханических систем. Серийное производство MEMS-компонентов.",
+    eco3_desc: "Разработка квантовых вычислительных систем и коммуникационной инфраструктуры.",
+    eco4_desc: "Chip design центр полного цикла: архитектура, RTL-разработка, верификация и подготовка к производству.",
+    eco5_desc: "Подготовка инженерных кадров для микроэлектронной отрасли: от международных учебных программ до практики на реальном оборудовании.",
+    eco6_desc: "Прикладные исследования и R&D-разработки совместно с университетами и промышленными партнёрами.",
+    eco7_desc: "Центр трансфера технологий, обеспечивающий коммерциализацию разработок резидентов кластера.",
+    partners_label: "Партнёры", partners_h2: "Наши партнёры",
+    news_label: "Новости", news_h2: "Новости",
     news_coming_soon: "Скоро",
-    news_placeholder1_title: "Новость 1",
-    news_placeholder2_title: "Новость 2",
+    news_placeholder1_title: "Новость 1", news_placeholder2_title: "Новость 2",
     news_placeholder_desc: "Следите за обновлениями. Новости появятся в ближайшее время.",
     news_subscribe_title: "Следите за новостями",
     news_subscribe_desc: "Мы будем публиковать обновления о ходе развития кластера, партнёрствах и событиях.",
     news_contact_btn: "Связаться",
-    contact_label: "Контакты",
-    contact_h2: "Свяжитесь с нами",
+    contact_label: "Контакты", contact_h2: "Свяжитесь с нами",
     contact_intro: "Если вы хотите узнать больше о кластере, обсудить партнёрство или инвестиции — напишите нам.",
-    contact_addr_label: "Адрес",
-    contact_addr: "Астана, МФЦА, Казахстан",
-    contact_email_label: "Email",
-    contact_phone_label: "Телефон",
-    contact_name_placeholder: "Ваше имя",
-    contact_email_placeholder: "Email",
-    contact_msg_placeholder: "Ваше сообщение",
-    contact_btn: "Отправить",
+    contact_addr_label: "Адрес", contact_addr: "Астана, МФЦА, Казахстан",
+    contact_email_label: "Email", contact_phone_label: "Телефон",
+    contact_name_placeholder: "Ваше имя", contact_email_placeholder: "Email",
+    contact_msg_placeholder: "Ваше сообщение", contact_btn: "Отправить",
     footer_copy: "© 2026 Oasis Silicon Cluster. Все права защищены.",
   },
   en: {
-    nav_about: "About",
-    nav_eco: "Ecosystem",
-    nav_partners: "Partners",
-    nav_news: "News",
-    nav_contact: "Contact",
-    hero_location: "Astana · AIFC · 2026",
-    hero_subtitle: "The First Microelectronics Cluster<br/>in Central Asia",
+    nav_about: "About", nav_eco: "Ecosystem", nav_partners: "Partners",
+    nav_news: "News", nav_contact: "Contact",
+    hero_subtitle: "The First Full-Cycle Microelectronics<br/>Cluster in Central Asia",
     hero_cta: "Learn More",
-    about_label: "About",
-    about_h2: "About the Cluster",
-    about_cluster_desc: "Oasis Silicon Cluster is Central Asia's first technology cluster, bringing together companies in chip manufacturing and testing, quantum technologies, chip design, applied research, and engineering education.",
-    about_cluster_desc2: "The cluster is built to establish a sovereign microelectronics base in the region and attract global technology partners.",
-    about_flagship_badge: "Flagship Company",
-    about_enteva_desc: "A high-tech company building the region's first OSAT (assembly and test) center for microchips. We are forming the core team that will serve as the foundation for launching Phase 1 production, engaging with global technology partners, and preparing investment materials for company scaling.",
-    eco_label: "Ecosystem",
-    eco_h2: "Cluster Structure",
-    eco1_desc: "Strategic assembly, testing, and packaging center for microchips (OSAT).",
-    eco2_desc: "Micro-electromechanical systems fabrication.",
-    eco3_desc: "Quantum technologies.",
-    eco4_desc: "Chip design center.",
-    eco5_desc: "Engineering education and workforce development (Nomad Engineers).",
-    eco6_desc: "Applied R&D center.",
-    eco7_desc: "Technology transfer and commercialization.",
-    partners_label: "Partners",
-    partners_h2: "Our Partners",
-    news_label: "News",
-    news_h2: "News",
+    about_label: "About", about_h2: "About the Cluster",
+    about_cluster_desc: "OASIS Silicon Cluster is Central Asia's first full-cycle microelectronics cluster, integrating research, chip design, electronic component manufacturing, engineering talent development, and technology commercialization.",
+    about_cluster_desc2: "The cluster builds the foundation of Kazakhstan's technological sovereignty, drives high-tech industry development, attracts international investment, and creates a globally competitive innovation ecosystem.",
+    fact1_title: "Astana, Kazakhstan",
+    fact1_desc: "Located at the heart of Eurasia, at the crossroads of key trade routes between Europe and Asia.",
+    fact2_title: "International Partners",
+    fact2_desc: "Collaboration with world-leading microelectronics and semiconductor organizations.",
+    fact3_title: "AIFC Jurisdiction",
+    fact3_desc: "Operating under English Common Law — the international standard for investors and technology companies.",
+    infra_label: "Cluster Infrastructure",
+    infra1: "Digital twins, predictive analytics",
+    infra2: "Modular production buildings",
+    infra3: "Labs and engineering centers",
+    infra4: "Digital management platform",
+    infra5: "Solar and wind energy",
+    infra6: "Multimodal logistics & export",
+    eco_label: "Ecosystem", eco_h2: "Cluster Structure",
+    eco1_desc: "The first production platform of OASIS Silicon Cluster. Building Kazakhstan's first OSAT (assembly and test) center for microchips.",
+    eco2_desc: "Micro-electromechanical systems fabrication plant. Serial production of MEMS components.",
+    eco3_desc: "Development of quantum computing systems and communication infrastructure.",
+    eco4_desc: "Full-cycle chip design center: architecture, RTL development, verification, and production readiness.",
+    eco5_desc: "Engineering talent development for the microelectronics industry: from international academic programs to hands-on training on real equipment.",
+    eco6_desc: "Applied research and R&D in collaboration with universities and industrial partners.",
+    eco7_desc: "Technology transfer center facilitating the commercialization of cluster residents' developments.",
+    partners_label: "Partners", partners_h2: "Our Partners",
+    news_label: "News", news_h2: "News",
     news_coming_soon: "Coming Soon",
-    news_placeholder1_title: "News 1",
-    news_placeholder2_title: "News 2",
+    news_placeholder1_title: "News 1", news_placeholder2_title: "News 2",
     news_placeholder_desc: "Stay tuned. News will be published shortly.",
     news_subscribe_title: "Stay Updated",
     news_subscribe_desc: "We'll publish updates on cluster development, partnerships, and events.",
     news_contact_btn: "Contact Us",
-    contact_label: "Contacts",
-    contact_h2: "Get in Touch",
-    contact_intro: "If you'd like to learn more about the cluster, discuss a partnership, or explore investment opportunities — reach out.",
-    contact_addr_label: "Address",
-    contact_addr: "Astana, AIFC, Kazakhstan",
-    contact_email_label: "Email",
-    contact_phone_label: "Phone",
-    contact_name_placeholder: "Your name",
-    contact_email_placeholder: "Email",
-    contact_msg_placeholder: "Your message",
-    contact_btn: "Send",
+    contact_label: "Contacts", contact_h2: "Get in Touch",
+    contact_intro: "If you'd like to learn more about the cluster, discuss a partnership, or explore investment — reach out.",
+    contact_addr_label: "Address", contact_addr: "Astana, AIFC, Kazakhstan",
+    contact_email_label: "Email", contact_phone_label: "Phone",
+    contact_name_placeholder: "Your name", contact_email_placeholder: "Email",
+    contact_msg_placeholder: "Your message", contact_btn: "Send",
     footer_copy: "© 2026 Oasis Silicon Cluster. All rights reserved.",
   },
   kz: {
-    nav_about: "Біз туралы",
-    nav_eco: "Экожүйе",
-    nav_partners: "Серіктестер",
-    nav_news: "Жаңалықтар",
-    nav_contact: "Байланыс",
-    hero_location: "Астана · ХҚКО · 2026",
-    hero_subtitle: "Орталық Азиядағы алғашқы<br/>микроэлектроника кластері",
+    nav_about: "Біз туралы", nav_eco: "Экожүйе", nav_partners: "Серіктестер",
+    nav_news: "Жаңалықтар", nav_contact: "Байланыс",
+    hero_subtitle: "Орталық Азиядағы алғашқы толық циклді<br/>микроэлектроника кластері",
     hero_cta: "Толығырақ",
-    about_label: "Біз туралы",
-    about_h2: "Кластер туралы",
-    about_cluster_desc: "Oasis Silicon Cluster — Орталық Азиядағы алғашқы технологиялық кластер, микросхемаларды өндіру мен тестілеу, кванттық технологиялар, чип жобалау, қолданбалы зерттеулер және инженерлік білім беру саласындағы компанияларды біріктіреді.",
-    about_cluster_desc2: "Кластер аймақта микроэлектроника саласында егемен база қалыптастыру және жаһандық технологиялық серіктестерді тарту мақсатында құрылған.",
-    about_flagship_badge: "Жетекші компания",
-    about_enteva_desc: "Аймақтағы алғашқы микросхемаларды буып-түю және тестілеу OSAT орталығын қалыптастыратын жоғары технологиялық компания. Біз 1-фаза өндірісін іске қосудың, жаһандық технологиялық серіктестермен өзара іс-қимылдың және компанияны ұлғайту үшін инвестициялық материалдарды дайындаудың негізі болатын команда ядросын қалыптастырып жатырмыз.",
-    eco_label: "Экожүйе",
-    eco_h2: "Кластер құрылымы",
-    eco1_desc: "Микросхемаларды жинау, тестілеу және буып-түю стратегиялық орталығы (OSAT).",
-    eco2_desc: "Микроэлектромеханикалық жүйелерді дайындау.",
-    eco3_desc: "Кванттық технологиялар.",
-    eco4_desc: "Микросхема жобалау орталығы.",
-    eco5_desc: "Инженерлік білім беру және кадр дамыту (Nomad Engineers).",
-    eco6_desc: "Қолданбалы ғылыми-зерттеу орталығы.",
-    eco7_desc: "Технологияны беру және коммерциялау.",
-    partners_label: "Серіктестер",
-    partners_h2: "Біздің серіктестер",
-    news_label: "Жаңалықтар",
-    news_h2: "Жаңалықтар",
+    about_label: "Біз туралы", about_h2: "Кластер туралы",
+    about_cluster_desc: "OASIS Silicon Cluster — Орталық Азиядағы алғашқы толық циклді микроэлектроника кластері, зерттеулерді, микросхема жобалауды, электрондық компоненттер өндірісін, инженерлік кадр дайындауды және технологияларды коммерциялауды біріктіреді.",
+    about_cluster_desc2: "Кластер Қазақстанның технологиялық егемендігінің негізін қалайды, жоғары технологиялы өнеркәсіптің дамуына, халықаралық инвестицияларды тартуға және әлемдік деңгейдегі бәсекеге қабілетті инновациялық экосистема қалыптастыруға ықпал етеді.",
+    fact1_title: "Астана, Қазақстан",
+    fact1_desc: "Еуразияның орталығында, Еуропа мен Азия арасындағы негізгі сауда жолдарының қиылысында орналасқан.",
+    fact2_title: "Халықаралық серіктестер",
+    fact2_desc: "Микроэлектроника және жартылай өткізгіштер саласындағы жетекші ұйымдармен ынтымақтастық.",
+    fact3_title: "ХҚКО базасында",
+    fact3_desc: "Ағылшын заңдары негізінде жұмыс істейді — инвесторлар мен технологиялық компаниялар үшін халықаралық стандарт.",
+    infra_label: "Кластер инфрақұрылымы",
+    infra1: "Цифрлық егіздер, болжамды аналитика",
+    infra2: "Модульдік өндірістік ғимараттар",
+    infra3: "Зертханалар мен инженерлік орталықтар",
+    infra4: "Басқарудың цифрлық платформасы",
+    infra5: "Күн мен жел энергиясы",
+    infra6: "Мультимодальды логистика және экспорт",
+    eco_label: "Экожүйе", eco_h2: "Кластер құрылымы",
+    eco1_desc: "OASIS Silicon Cluster-тің алғашқы өндірістік платформасы. Қазақстанда микросхемаларды буып-түю және тестілеу орталығын (OSAT) құру.",
+    eco2_desc: "Микроэлектромеханикалық жүйелер зауыты. MEMS компоненттерін сериялы өндіру.",
+    eco3_desc: "Кванттық есептеу жүйелерін және байланыс инфрақұрылымын әзірлеу.",
+    eco4_desc: "Толық циклді chip design орталығы: архитектура, RTL-әзірлеу, верификация және өндіріске дайындық.",
+    eco5_desc: "Микроэлектрондық сала үшін инженерлік кадрларды дайындау: халықаралық бағдарламалардан нақты жабдықта тәжірибеге дейін.",
+    eco6_desc: "Университеттермен және өнеркәсіптік серіктестермен бірлесіп қолданбалы зерттеулер мен R&D-әзірлемелер.",
+    eco7_desc: "Кластер резиденттерінің әзірлемелерін коммерциялауды қамтамасыз ететін технологияларды беру орталығы.",
+    partners_label: "Серіктестер", partners_h2: "Біздің серіктестер",
+    news_label: "Жаңалықтар", news_h2: "Жаңалықтар",
     news_coming_soon: "Жақында",
-    news_placeholder1_title: "Жаңалық 1",
-    news_placeholder2_title: "Жаңалық 2",
+    news_placeholder1_title: "Жаңалық 1", news_placeholder2_title: "Жаңалық 2",
     news_placeholder_desc: "Жаңартуларды қадағалаңыз. Жаңалықтар жақын арада жарияланады.",
     news_subscribe_title: "Жаңалықтарды қадағалаңыз",
     news_subscribe_desc: "Кластердің дамуы, серіктестіктер мен іс-шаралар туралы жаңартуларды жариялаймыз.",
     news_contact_btn: "Байланысу",
-    contact_label: "Байланыс",
-    contact_h2: "Бізбен байланысыңыз",
+    contact_label: "Байланыс", contact_h2: "Бізбен байланысыңыз",
     contact_intro: "Кластер туралы көбірек білгіңіз келсе, серіктестікті немесе инвестицияны талқылағыңыз келсе — бізге хабарласыңыз.",
-    contact_addr_label: "Мекенжай",
-    contact_addr: "Астана, ХҚКО, Қазақстан",
-    contact_email_label: "Email",
-    contact_phone_label: "Телефон",
-    contact_name_placeholder: "Атыңыз",
-    contact_email_placeholder: "Email",
-    contact_msg_placeholder: "Хабарламаңыз",
-    contact_btn: "Жіберу",
+    contact_addr_label: "Мекенжай", contact_addr: "Астана, ХҚКО, Қазақстан",
+    contact_email_label: "Email", contact_phone_label: "Телефон",
+    contact_name_placeholder: "Атыңыз", contact_email_placeholder: "Email",
+    contact_msg_placeholder: "Хабарламаңыз", contact_btn: "Жіберу",
     footer_copy: "© 2026 Oasis Silicon Cluster. Барлық құқықтар қорғалған.",
   }
 };
