@@ -525,18 +525,29 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-      <!-- News placeholder 1 -->
-      <div class="bg-surface-container-lowest border border-outline/15 rounded-2xl overflow-hidden fade-up">
-        <div class="h-44 overflow-hidden">
+      <!-- News 1 — LinkedIn launch post -->
+      <a href="https://www.linkedin.com/feed/update/urn:li:activity:7468274306108588032/"
+         target="_blank" rel="noopener"
+         class="bg-surface-container-lowest border border-outline/15 rounded-2xl overflow-hidden fade-up group block hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+        <div class="h-44 overflow-hidden relative">
           <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=85"
-               alt="News" class="w-full h-full object-cover"/>
+               alt="OASIS Launch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+          <!-- LinkedIn badge -->
+          <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-[#0077B5] text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow">
+            <svg class="w-3 h-3 fill-current flex-shrink-0" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </div>
         </div>
         <div class="p-6 space-y-3">
-          <p class="font-mono text-xs text-secondary uppercase tracking-widest" data-i18n="news_coming_soon">Скоро</p>
-          <h3 class="font-display font-semibold text-primary text-base" data-i18n="news_placeholder1_title">Новость 1</h3>
-          <p class="text-sm text-secondary leading-relaxed" data-i18n="news_placeholder_desc">Следите за обновлениями. Новости появятся в ближайшее время.</p>
+          <p class="font-mono text-xs text-secondary uppercase tracking-widest" data-i18n="news1_date">Июнь 2026</p>
+          <h3 class="font-display font-semibold text-primary text-base leading-snug group-hover:text-primary/80 transition-colors" data-i18n="news1_title">OASIS Silicon Cluster: официальный запуск</h3>
+          <p class="text-sm text-secondary leading-relaxed" data-i18n="news1_desc">Первый кластер микроэлектроники в Центральной Азии объявил о старте. Полупроводники, MEMS, квантовые технологии — Казахстан становится технологическим хабом Среднего коридора.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-primary pt-1" data-i18n="news1_link">
+            Читать на LinkedIn <span class="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">arrow_outward</span>
+          </span>
         </div>
-      </div>
+      </a>
 
       <!-- News placeholder 2 -->
       <div class="bg-surface-container-lowest border border-outline/15 rounded-2xl overflow-hidden fade-up">
@@ -696,8 +707,12 @@ const translations = {
     eco7_desc: "Фабрика микроэлектромеханических систем. Серийное производство MEMS-компонентов.",
     partners_label: "Партнёры", partners_h2: "Наши партнёры",
     news_label: "Новости", news_h2: "Новости",
+    news1_date: "Июнь 2026",
+    news1_title: "OASIS Silicon Cluster: официальный запуск",
+    news1_desc: "Первый кластер микроэлектроники в Центральной Азии объявил о старте. Полупроводники, MEMS, квантовые технологии — Казахстан становится технологическим хабом Среднего коридора.",
+    news1_link: "Читать на LinkedIn",
     news_coming_soon: "Скоро",
-    news_placeholder1_title: "Новость 1", news_placeholder2_title: "Новость 2",
+    news_placeholder2_title: "Новость 2",
     news_placeholder_desc: "Следите за обновлениями. Новости появятся в ближайшее время.",
     news_subscribe_title: "Следите за новостями",
     news_subscribe_desc: "Мы будем публиковать обновления о ходе развития кластера, партнёрствах и событиях.",
@@ -741,8 +756,12 @@ const translations = {
     eco7_desc: "Micro-electromechanical systems fabrication plant. Serial production of MEMS components.",
     partners_label: "Partners", partners_h2: "Our Partners",
     news_label: "News", news_h2: "News",
+    news1_date: "June 2026",
+    news1_title: "OASIS Silicon Cluster: Official Launch",
+    news1_desc: "Central Asia's first microelectronics cluster has officially announced its launch — semiconductors, MEMS, and quantum technologies at the heart of the Middle Corridor.",
+    news1_link: "Read on LinkedIn",
     news_coming_soon: "Coming Soon",
-    news_placeholder1_title: "News 1", news_placeholder2_title: "News 2",
+    news_placeholder2_title: "News 2",
     news_placeholder_desc: "Stay tuned. News will be published shortly.",
     news_subscribe_title: "Stay Updated",
     news_subscribe_desc: "We'll publish updates on cluster development, partnerships, and events.",
@@ -786,8 +805,12 @@ const translations = {
     eco7_desc: "Микроэлектромеханикалық жүйелер зауыты. MEMS компоненттерін сериялы өндіру.",
     partners_label: "Серіктестер", partners_h2: "Біздің серіктестер",
     news_label: "Жаңалықтар", news_h2: "Жаңалықтар",
+    news1_date: "Маусым 2026",
+    news1_title: "OASIS Silicon Cluster: ресми іске қосылды",
+    news1_desc: "Орталық Азиядағы алғашқы микроэлектроника кластері іске қосылғанын жариялады — жартылай өткізгіштер, MEMS және кванттық технологиялар Орта дәлізде.",
+    news1_link: "LinkedIn-де оқу",
     news_coming_soon: "Жақында",
-    news_placeholder1_title: "Жаңалық 1", news_placeholder2_title: "Жаңалық 2",
+    news_placeholder2_title: "Жаңалық 2",
     news_placeholder_desc: "Жаңартуларды қадағалаңыз. Жаңалықтар жақын арада жарияланады.",
     news_subscribe_title: "Жаңалықтарды қадағалаңыз",
     news_subscribe_desc: "Кластердің дамуы, серіктестіктер мен іс-шаралар туралы жаңартуларды жариялаймыз.",
