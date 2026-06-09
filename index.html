@@ -275,7 +275,6 @@
 
     <!-- Label + heading -->
     <div class="mb-6 md:mb-10">
-      <p class="label-animate text-xs font-bold tracking-[0.2em] uppercase text-primary mb-2 fade-up" data-i18n="about_label">О нас</p>
       <h2 class="font-display font-bold text-primary leading-tight fade-up" style="font-size: clamp(1.5rem, 4vw, 3rem);" data-i18n="about_h2">О кластере</h2>
     </div>
 
@@ -356,7 +355,7 @@
 
   <!-- Full-bleed infra image — desktop only, outside container -->
   <div class="hidden md:block mt-10 fade-up">
-    <p class="text-xs font-bold tracking-[0.25em] uppercase text-primary-fixed-dim mb-4 max-w-container-max mx-auto px-4 md:px-margin-desktop" data-i18n="infra_label">Инфраструктура кластера</p>
+    <p class="font-display font-bold text-primary mb-5 max-w-container-max mx-auto px-4 md:px-margin-desktop" style="font-size: clamp(1.25rem, 2.5vw, 1.75rem);" data-i18n="infra_label">Инфраструктура кластера</p>
     <img src="infra.png" alt="OASIS Silicon Cluster infrastructure map" class="w-full block"/>
   </div>
 
@@ -632,64 +631,37 @@
       <h2 class="font-display font-bold leading-tight fade-up" style="font-size: clamp(1.75rem, 4vw, 3rem);" data-i18n="contact_h2">Свяжитесь с нами</h2>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-10 lg:gap-16">
-
-      <!-- Contact info -->
-      <div class="space-y-6 fade-up">
-        <p class="text-on-primary/70 text-base leading-relaxed" data-i18n="contact_intro">Если вы хотите узнать больше о кластере, обсудить партнёрство или инвестиции — напишите нам.</p>
-
-        <div class="space-y-4 pt-2">
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-primary-fixed-dim text-xl">location_on</span>
-            </div>
-            <div>
-              <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_addr_label">Адрес</p>
-              <p class="text-on-primary/80 text-sm" data-i18n="contact_addr">Астана, МФЦА, Казахстан</p>
-            </div>
+    <div class="space-y-6 fade-up max-w-xl">
+      <p class="text-on-primary/70 text-base leading-relaxed" data-i18n="contact_intro">Если вы хотите узнать больше о кластере, обсудить партнёрство или инвестиции — напишите нам.</p>
+      <div class="space-y-4 pt-2">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-primary-fixed-dim text-xl">location_on</span>
           </div>
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-primary-fixed-dim text-xl">mail</span>
-            </div>
-            <div>
-              <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_email_label">Email</p>
-              <a href="mailto:oasissiliconcluster@gmail.com" class="text-on-primary/80 text-sm hover:text-tertiary-fixed transition-colors">oasissiliconcluster@gmail.com</a>
-            </div>
+          <div>
+            <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_addr_label">Адрес</p>
+            <p class="text-on-primary/80 text-sm" data-i18n="contact_addr">Астана, МФЦА, Казахстан</p>
           </div>
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-primary-fixed-dim text-xl">phone</span>
-            </div>
-            <div>
-              <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_phone_label">Телефон</p>
-              <a href="tel:+77767368042" class="text-on-primary/80 text-sm hover:text-tertiary-fixed transition-colors">+7 776 736 80 42</a>
-            </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-primary-fixed-dim text-xl">mail</span>
+          </div>
+          <div>
+            <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_email_label">Email</p>
+            <a href="mailto:oasissiliconcluster@gmail.com" class="text-on-primary/80 text-sm hover:text-tertiary-fixed transition-colors">oasissiliconcluster@gmail.com</a>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-primary-fixed-dim text-xl">phone</span>
+          </div>
+          <div>
+            <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_phone_label">Телефон</p>
+            <a href="tel:+77767368042" class="text-on-primary/80 text-sm hover:text-tertiary-fixed transition-colors">+7 776 736 80 42</a>
           </div>
         </div>
       </div>
-
-      <!-- Contact form -->
-      <form class="space-y-4 fade-up" onsubmit="return false">
-        <div>
-          <input type="text"
-                 class="w-full bg-on-primary/5 border border-on-primary/20 rounded-xl px-4 py-3.5 text-on-primary placeholder-on-primary/40 text-sm focus:outline-none focus:border-primary-fixed-dim transition-colors"
-                 data-i18n-placeholder="contact_name_placeholder" placeholder="Ваше имя"/>
-        </div>
-        <div>
-          <input type="tel"
-                 class="w-full bg-on-primary/5 border border-on-primary/20 rounded-xl px-4 py-3.5 text-on-primary placeholder-on-primary/40 text-sm focus:outline-none focus:border-primary-fixed-dim transition-colors"
-                 data-i18n-placeholder="contact_phone_placeholder" placeholder="Телефон"/>
-        </div>
-        <div>
-          <textarea rows="4"
-                    class="w-full bg-on-primary/5 border border-on-primary/20 rounded-xl px-4 py-3.5 text-on-primary placeholder-on-primary/40 text-sm focus:outline-none focus:border-primary-fixed-dim transition-colors resize-none"
-                    data-i18n-placeholder="contact_msg_placeholder" placeholder="Ваше сообщение"></textarea>
-        </div>
-        <button type="submit"
-                class="w-full bg-tertiary-fixed text-on-tertiary-fixed font-bold text-xs tracking-widest uppercase px-6 py-4 rounded-xl hover:opacity-90 active:scale-[0.98] transition-all"
-                data-i18n="contact_btn">Отправить</button>
-      </form>
     </div>
 
   </div>
