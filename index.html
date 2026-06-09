@@ -12,8 +12,8 @@
     theme: {
       extend: {
         colors: {
-          primary: "#111111",
-          "primary-container": "#1a1a1a",
+          primary: "#0B1628",
+          "primary-container": "#111E30",
           "primary-fixed": "#e8e8e8",
           "primary-fixed-dim": "#999999",
           "on-primary": "#ffffff",
@@ -49,7 +49,7 @@
 
   /* ── Lang & nav ── */
   .lang-btn { transition: all 0.15s ease; }
-  .lang-btn.active { background-color: #111111; color: #ffffff; }
+  .lang-btn.active { background-color: #0B1628; color: #ffffff; }
 
   /* ── Hero elements stagger reveal ── */
   .hero-el {
@@ -217,7 +217,7 @@
   <div class="absolute inset-0 z-0">
     <img src="hero.png"
          alt="Oasis Silicon Cluster" class="w-full h-full object-cover" id="hero-img"/>
-    <div class="absolute inset-0 bg-gradient-to-b from-primary/95 via-primary/70 to-primary/40 md:bg-gradient-to-r md:from-primary/90 md:via-primary/50 md:to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/55 to-primary/25 md:bg-gradient-to-r md:from-primary/80 md:via-primary/45 md:to-transparent"></div>
   </div>
 
   <!-- Dot grid overlay -->
@@ -253,12 +253,9 @@
   <div class="scan-line"></div>
   <div class="relative z-10 max-w-container-max mx-auto px-4 md:px-margin-desktop w-full py-20 md:py-0">
     <div class="max-w-2xl space-y-6">
-      <h1 class="hero-el d350 font-display font-bold text-on-primary leading-tight" style="font-size: clamp(2rem, 5vw, 3.5rem);">
-        Oasis Silicon Cluster
-      </h1>
-      <p class="hero-el d550 font-display font-semibold text-primary-fixed-dim leading-snug" style="font-size: clamp(1.1rem, 2.5vw, 1.5rem);" data-i18n="hero_subtitle">
+      <h1 class="hero-el d350 font-display font-bold text-on-primary leading-tight" style="font-size: clamp(1.75rem, 4vw, 3rem);" data-i18n-html="hero_subtitle">
         Первый кластер микроэлектроники<br/>в Центральной Азии
-      </p>
+      </h1>
       <div class="hero-el d750 pt-2">
         <a href="#about" class="inline-flex items-center gap-2 bg-primary-fixed text-on-primary-fixed font-bold text-xs tracking-widest uppercase px-7 py-4 rounded-lg hover:opacity-90 active:scale-95 transition-all group" data-i18n="hero_cta">
           Узнать больше
