@@ -12,15 +12,15 @@
     theme: {
       extend: {
         colors: {
-          primary: "#0B1628",
-          "primary-container": "#111E30",
+          primary: "#112470",
+          "primary-container": "#0D1C5E",
           "primary-fixed": "#e8e8e8",
-          "primary-fixed-dim": "#999999",
+          "primary-fixed-dim": "#c0c8de",
           "on-primary": "#ffffff",
-          "on-primary-fixed": "#111111",
-          "tertiary-fixed": "#D4A843",
-          "on-tertiary-fixed": "#111111",
-          secondary: "#555555",
+          "on-primary-fixed": "#112470",
+          "tertiary-fixed": "#112470",
+          "on-tertiary-fixed": "#ffffff",
+          secondary: "#2A2F45",
           "on-secondary": "#ffffff",
           surface: "#ffffff",
           "on-surface": "#111111",
@@ -106,8 +106,8 @@
 
   /* ── Enteva card pulsing glow ── */
   @keyframes entevaGlow {
-    0%,100% { box-shadow: 0 0 0 0 rgba(212,168,67,0); }
-    50%      { box-shadow: 0 0 32px 6px rgba(212,168,67,.12), inset 0 0 24px rgba(212,168,67,.04); }
+    0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    50%      { box-shadow: 0 0 32px 6px rgba(255,255,255,.07), inset 0 0 24px rgba(255,255,255,.03); }
   }
   .enteva-glow { animation: entevaGlow 4s ease-in-out infinite; }
 
@@ -130,11 +130,11 @@
   .label-animate::before {
     content: ''; display: block; width: 0; height: 2px;
     border-radius: 2px;
-    background: #D4A843;
+    background: #112470;
     transition: width .7s cubic-bezier(.16,1,.3,1) var(--sd, 0ms);
   }
   .label-animate.visible::before { width: 24px; }
-  .label-animate-light::before { background: #D4A843; }
+  .label-animate-light::before { background: rgba(255,255,255,0.65); }
 
   /* ── Eco icon spin on hover ── */
   .eco-card:hover .eco-icon {
@@ -159,6 +159,55 @@
   }
   .infra-dot { animation: dotPulse 2.5s ease-in-out infinite; }
   .infra-dot-ring { animation: dotPulse 2.5s ease-in-out infinite; animation-delay: .15s; }
+
+  /* ── Design tokens ── */
+  :root {
+    --color-accent: #112470;
+    --color-base: #FFFFFF;
+    --color-text: #2A2F45;
+    --radius-card: 16px;
+    --shadow-card: 0 2px 8px rgba(11,22,40,0.06);
+    --shadow-card-hover: 0 8px 24px rgba(11,22,40,0.13);
+    --transition-card: transform 0.22s cubic-bezier(0.16,1,0.3,1),
+                       box-shadow 0.22s cubic-bezier(0.16,1,0.3,1),
+                       border-color 0.22s ease;
+  }
+
+  /* ── About hairline stats (no box) ── */
+  .about-stat {
+    padding-top: 20px;
+    border-top: 1.5px solid rgba(11, 22, 40, 0.15);
+    transition: border-top-color 0.25s ease;
+  }
+  .about-stat:hover { border-top-color: rgba(17, 36, 112, 0.55); }
+
+  /* ── Unified card hover (partner, news, eco) ── */
+  .eco-card { box-shadow: var(--shadow-card); }
+  .eco-card:hover { box-shadow: var(--shadow-card-hover); }
+
+  .partner-card { box-shadow: var(--shadow-card); }
+  .partner-card:hover { box-shadow: var(--shadow-card-hover); }
+
+  /* ── Consistent icon weight ── */
+  .oasis-icon {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+
+  /* ── Unified border-radius token: all cards use 16px ── */
+  .partner-card,
+  .eco-card,
+  .news-card {
+    border-radius: var(--radius-card);
+  }
+
+  /* ── News card hover ── */
+  .news-card {
+    transition: var(--transition-card);
+  }
+  .news-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover);
+  }
 </style>
 </head>
 <body class="bg-surface text-on-surface font-body antialiased overflow-x-hidden">
@@ -217,7 +266,7 @@
   <div class="absolute inset-0 z-0">
     <img src="hero.png"
          alt="Oasis Silicon Cluster" class="w-full h-full object-cover" id="hero-img"/>
-    <div class="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/55 to-primary/25 md:bg-gradient-to-r md:from-primary/80 md:via-primary/45 md:to-transparent"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(11,22,40,0.93) 0%, rgba(11,22,40,0.74) 32%, rgba(11,22,40,0.28) 58%, transparent 100%), linear-gradient(to top, rgba(11,22,40,0.50) 0%, transparent 38%);"></div>
   </div>
 
   <!-- Dot grid overlay -->
@@ -239,11 +288,11 @@
           pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"
           style="animation: drawPath 4s 1.1s cubic-bezier(.4,0,.2,1) forwards"/>
     <!-- Glowing junction nodes -->
-    <circle cx="180" cy="220" r="3.5" fill="rgba(212,168,67,.7)"
+    <circle cx="180" cy="220" r="3.5" fill="rgba(255,255,255,.80)"
             style="opacity:0; animation: fadeIn .2s 2.9s forwards, nodePulse 2.5s 3.1s ease-in-out infinite"/>
     <circle cx="420" cy="140" r="3" fill="rgba(255,255,255,.7)"
             style="opacity:0; animation: fadeIn .2s 3.4s forwards, nodePulse 3s 3.6s ease-in-out infinite"/>
-    <circle cx="660" cy="200" r="3" fill="rgba(212,168,67,.5)"
+    <circle cx="660" cy="200" r="3" fill="rgba(255,255,255,.50)"
             style="opacity:0; animation: fadeIn .2s 3.8s forwards, nodePulse 2.8s 4s ease-in-out infinite"/>
     <circle cx="380" cy="310" r="2.5" fill="rgba(255,255,255,.5)"
             style="opacity:0; animation: fadeIn .2s 4.2s forwards, nodePulse 3.2s 4.4s ease-in-out infinite"/>
@@ -257,7 +306,7 @@
         Первый кластер микроэлектроники<br/>в Центральной Азии
       </h1>
       <div class="hero-el d750 pt-2">
-        <a href="#about" class="inline-flex items-center gap-2 bg-primary-fixed text-on-primary-fixed font-bold text-xs tracking-widest uppercase px-7 py-4 rounded-lg hover:opacity-90 active:scale-95 transition-all group" data-i18n="hero_cta">
+        <a href="#about" class="inline-flex items-center gap-2 bg-on-primary text-primary font-bold text-xs tracking-widest uppercase px-7 py-4 rounded-lg hover:bg-primary-fixed active:scale-95 transition-all group" data-i18n="hero_cta">
           Узнать больше
           <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </a>
@@ -272,6 +321,7 @@
 
     <!-- Label + heading -->
     <div class="mb-6 md:mb-10">
+      <p class="label-animate text-xs font-bold tracking-[0.2em] uppercase text-tertiary-fixed mb-3 fade-up" data-i18n="about_label">О нас</p>
       <h2 class="font-display font-bold text-primary leading-tight fade-up" style="font-size: clamp(1.5rem, 4vw, 3rem);" data-i18n="about_h2">О кластере</h2>
     </div>
 
@@ -287,25 +337,19 @@
     </div>
 
     <!-- 3 key facts -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-5 mb-10 md:mb-14 stagger-row">
-      <div class="bg-surface-container rounded-xl md:rounded-2xl p-4 md:p-6 space-y-2 md:space-y-3 border border-outline/10 fade-up">
-        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-          <span class="material-symbols-outlined text-primary text-xl">location_on</span>
-        </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-10 mb-10 md:mb-14 stagger-row">
+      <div class="about-stat space-y-2 md:space-y-3 fade-up">
+        <span class="oasis-icon material-symbols-outlined text-primary mb-1 block" style="font-size:22px;">location_on</span>
         <h4 class="font-display font-bold text-primary text-base" data-i18n="fact1_title">Астана, Казахстан</h4>
         <p class="text-sm text-secondary leading-relaxed" data-i18n="fact1_desc">Расположен в центре Евразии, на пересечении ключевых торговых маршрутов между Европой и Азией.</p>
       </div>
-      <div class="bg-surface-container rounded-xl md:rounded-2xl p-4 md:p-6 space-y-2 md:space-y-3 border border-outline/10 fade-up">
-        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-          <span class="material-symbols-outlined text-primary text-xl">handshake</span>
-        </div>
+      <div class="about-stat space-y-2 md:space-y-3 fade-up">
+        <span class="oasis-icon material-symbols-outlined text-primary mb-1 block" style="font-size:22px;">handshake</span>
         <h4 class="font-display font-bold text-primary text-base" data-i18n="fact2_title">Международные партнёры</h4>
         <p class="text-sm text-secondary leading-relaxed" data-i18n="fact2_desc">Сотрудничество с ведущими мировыми организациями в области микроэлектроники и полупроводников.</p>
       </div>
-      <div class="bg-surface-container rounded-xl md:rounded-2xl p-4 md:p-6 space-y-2 md:space-y-3 border border-outline/10 fade-up">
-        <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-          <span class="material-symbols-outlined text-primary text-xl">gavel</span>
-        </div>
+      <div class="about-stat space-y-2 md:space-y-3 fade-up">
+        <span class="oasis-icon material-symbols-outlined text-primary mb-1 block" style="font-size:22px;">gavel</span>
         <h4 class="font-display font-bold text-primary text-base" data-i18n="fact3_title">При базе МФЦА</h4>
         <p class="text-sm text-secondary leading-relaxed" data-i18n="fact3_desc">Работает на базе английского права, международного стандарта для инвесторов и технологических компаний.</p>
       </div>
@@ -316,33 +360,33 @@
       <p class="text-xs font-bold tracking-[0.25em] uppercase text-primary-fixed-dim mb-6" data-i18n="infra_label">Инфраструктура кластера</p>
       <div class="grid grid-cols-2 gap-4">
         <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
-          <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">view_in_ar</span>
-          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">Digital Twin Core</p>
+          <span class="material-symbols-outlined text-on-primary text-xl mb-2 block">view_in_ar</span>
+          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1" data-i18n="infra1_title">Digital Twin Core</p>
           <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra1">Цифровые двойники, предиктивная аналитика</p>
         </div>
         <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
-          <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">factory</span>
-          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">Smart Factories</p>
+          <span class="oasis-icon material-symbols-outlined text-on-primary text-xl mb-2 block">factory</span>
+          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1" data-i18n="infra2_title">Smart Factories</p>
           <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra2">Модульные производственные здания</p>
         </div>
         <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
-          <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">science</span>
-          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">R&amp;D Core</p>
+          <span class="oasis-icon material-symbols-outlined text-on-primary text-xl mb-2 block">science</span>
+          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1" data-i18n="infra3_title">R&amp;D Core</p>
           <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra3">Лаборатории и инженерные центры</p>
         </div>
         <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
-          <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">psychology</span>
-          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">AI Digital Platform</p>
+          <span class="oasis-icon material-symbols-outlined text-on-primary text-xl mb-2 block">psychology</span>
+          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1" data-i18n="infra4_title">AI Digital Platform</p>
           <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra4">Цифровая платформа управления</p>
         </div>
         <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
-          <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">eco</span>
-          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">ESG Energy Process</p>
+          <span class="oasis-icon material-symbols-outlined text-on-primary text-xl mb-2 block">eco</span>
+          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1" data-i18n="infra5_title">ESG Energy Process</p>
           <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra5">Солнечная и ветровая энергия</p>
         </div>
         <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
-          <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">local_shipping</span>
-          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">Smart Export Hub</p>
+          <span class="oasis-icon material-symbols-outlined text-on-primary text-xl mb-2 block">local_shipping</span>
+          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1" data-i18n="infra6_title">Smart Export Hub</p>
           <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra6">Мультимодальная логистика и экспорт</p>
         </div>
       </div>
@@ -370,10 +414,10 @@
     <div class="stagger-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
 
       <!-- Enteva Microsystems — featured -->
-      <div class="eco-card sm:col-span-2 bg-on-primary/5 border border-tertiary-fixed/30 rounded-2xl p-6 space-y-4 fade-up">
+      <div class="eco-card sm:col-span-2 bg-on-primary/5 border border-on-primary/20 rounded-2xl p-6 space-y-4 fade-up">
         <div class="flex items-start justify-between">
-          <span class="font-mono text-xs text-tertiary-fixed opacity-70">01</span>
-          <span class="eco-icon material-symbols-outlined text-tertiary-fixed text-2xl">developer_board</span>
+          <span class="font-mono text-xs text-on-primary/50">01</span>
+          <span class="eco-icon oasis-icon material-symbols-outlined text-on-primary/90 text-2xl">developer_board</span>
         </div>
         <div>
           <h3 class="font-display font-bold text-lg text-on-primary">Enteva Microsystems</h3>
@@ -387,7 +431,7 @@
       <div class="eco-card bg-on-primary/5 border border-on-primary/10 rounded-2xl p-6 space-y-4 fade-up">
         <div class="flex items-start justify-between">
           <span class="font-mono text-xs text-primary-fixed-dim opacity-70">02</span>
-          <span class="eco-icon material-symbols-outlined text-primary-fixed-dim text-2xl">school</span>
+          <span class="eco-icon oasis-icon material-symbols-outlined text-primary-fixed-dim text-2xl">school</span>
         </div>
         <div>
           <h3 class="font-display font-semibold text-base text-on-primary">OASIS Academy / Nomad Engineering</h3>
@@ -398,7 +442,7 @@
       <div class="eco-card bg-on-primary/5 border border-on-primary/10 rounded-2xl p-6 space-y-4 fade-up">
         <div class="flex items-start justify-between">
           <span class="font-mono text-xs text-primary-fixed-dim opacity-70">03</span>
-          <span class="material-symbols-outlined text-primary-fixed-dim text-2xl">science</span>
+          <span class="eco-icon oasis-icon material-symbols-outlined text-primary-fixed-dim text-2xl">science</span>
         </div>
         <div>
           <h3 class="font-display font-semibold text-base text-on-primary">Oasis Labs</h3>
@@ -409,7 +453,7 @@
       <div class="eco-card bg-on-primary/5 border border-on-primary/10 rounded-2xl p-6 space-y-4 fade-up">
         <div class="flex items-start justify-between">
           <span class="font-mono text-xs text-primary-fixed-dim opacity-70">04</span>
-          <span class="material-symbols-outlined text-primary-fixed-dim text-2xl">connecting_airports</span>
+          <span class="eco-icon oasis-icon material-symbols-outlined text-primary-fixed-dim text-2xl">connecting_airports</span>
         </div>
         <div>
           <h3 class="font-display font-semibold text-base text-on-primary">Oasis Bridge</h3>
@@ -420,7 +464,7 @@
       <div class="eco-card bg-on-primary/5 border border-on-primary/10 rounded-2xl p-6 space-y-4 fade-up">
         <div class="flex items-start justify-between">
           <span class="font-mono text-xs text-primary-fixed-dim opacity-70">05</span>
-          <span class="material-symbols-outlined text-primary-fixed-dim text-2xl">design_services</span>
+          <span class="eco-icon oasis-icon material-symbols-outlined text-primary-fixed-dim text-2xl">design_services</span>
         </div>
         <div>
           <h3 class="font-display font-semibold text-base text-on-primary">OASIS Silicon Studio</h3>
@@ -431,7 +475,7 @@
       <div class="eco-card bg-on-primary/5 border border-on-primary/10 rounded-2xl p-6 space-y-4 fade-up">
         <div class="flex items-start justify-between">
           <span class="font-mono text-xs text-primary-fixed-dim opacity-70">06</span>
-          <span class="material-symbols-outlined text-primary-fixed-dim text-2xl">hub</span>
+          <span class="eco-icon oasis-icon material-symbols-outlined text-primary-fixed-dim text-2xl">hub</span>
         </div>
         <div>
           <h3 class="font-display font-semibold text-base text-on-primary">Qanat Quantum</h3>
@@ -442,7 +486,7 @@
       <div class="eco-card bg-on-primary/5 border border-on-primary/10 rounded-2xl p-6 space-y-4 fade-up">
         <div class="flex items-start justify-between">
           <span class="font-mono text-xs text-primary-fixed-dim opacity-70">07</span>
-          <span class="eco-icon material-symbols-outlined text-primary-fixed-dim text-2xl">precision_manufacturing</span>
+          <span class="eco-icon oasis-icon material-symbols-outlined text-primary-fixed-dim text-2xl">precision_manufacturing</span>
         </div>
         <div>
           <h3 class="font-display font-semibold text-base text-on-primary">MEMS Fab</h3>
@@ -470,7 +514,7 @@
          class="partner-card bg-surface-container-lowest border border-outline/15 rounded-2xl p-5 flex flex-col items-center gap-4 text-center group fade-up">
         <div class="h-14 flex items-center justify-center">
           <img src="logos/qaztech.png" alt="QazTech"
-               class="h-10 max-w-[120px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300 logo-img"
+               class="max-h-11 w-auto max-w-[130px] object-contain logo-img"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="logo-fallback hidden w-12 h-12 rounded-xl items-center justify-center" style="background:#00b4d8">
             <span class="font-display font-bold text-white text-base">QT</span>
@@ -487,7 +531,7 @@
          class="partner-card bg-surface-container-lowest border border-outline/15 rounded-2xl p-5 flex flex-col items-center gap-4 text-center group fade-up">
         <div class="h-14 flex items-center justify-center">
           <img src="logos/silicon-saxony.svg" alt="Silicon Saxony"
-               class="h-10 max-w-[120px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300 logo-img"
+               class="max-h-11 w-auto max-w-[130px] object-contain logo-img"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="logo-fallback hidden w-12 h-12 rounded-xl items-center justify-center" style="background:#003745">
             <span class="font-display font-bold text-white text-sm">SS</span>
@@ -504,7 +548,7 @@
          class="partner-card bg-surface-container-lowest border border-outline/15 rounded-2xl p-5 flex flex-col items-center gap-4 text-center group fade-up">
         <div class="h-14 flex items-center justify-center">
           <img src="logos/deaxo.png" alt="Deaxo"
-               class="h-10 max-w-[120px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300 logo-img"
+               class="max-h-11 w-auto max-w-[130px] object-contain logo-img"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="logo-fallback hidden w-12 h-12 rounded-xl items-center justify-center" style="background:#1a1a2e">
             <span class="font-display font-bold text-white text-sm">DX</span>
@@ -521,7 +565,7 @@
          class="partner-card bg-surface-container-lowest border border-outline/15 rounded-2xl p-5 flex flex-col items-center gap-4 text-center group fade-up">
         <div class="h-14 flex items-center justify-center">
           <img src="logos/fraunhofer-enas.gif" alt="Fraunhofer ENAS"
-               class="h-10 max-w-[120px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300 logo-img"
+               class="max-h-11 w-auto max-w-[130px] object-contain logo-img"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="logo-fallback hidden w-12 h-12 rounded-xl items-center justify-center" style="background:#179c7d">
             <span class="font-display font-bold text-white text-sm">FE</span>
@@ -538,7 +582,7 @@
          class="partner-card bg-surface-container-lowest border border-outline/15 rounded-2xl p-5 flex flex-col items-center gap-4 text-center group fade-up">
         <div class="h-14 flex items-center justify-center">
           <img src="logos/nu.svg" alt="Nazarbayev University"
-               class="h-10 max-w-[120px] object-contain grayscale group-hover:grayscale-0 transition-all duration-300 logo-img"
+               class="max-h-11 w-auto max-w-[130px] object-contain logo-img"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="logo-fallback hidden w-12 h-12 rounded-xl items-center justify-center" style="background:#002d62">
             <span class="font-display font-bold text-white text-sm">NU</span>
@@ -563,12 +607,12 @@
       <h2 class="font-display font-bold text-primary leading-tight fade-up" style="font-size: clamp(1.75rem, 4vw, 3rem);" data-i18n="news_h2">Новости</h2>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
       <!-- News 1 — LinkedIn launch post -->
       <a href="https://www.linkedin.com/feed/update/urn:li:activity:7468274306108588032/"
          target="_blank" rel="noopener"
-         class="bg-surface-container-lowest border border-outline/15 rounded-2xl overflow-hidden fade-up group block hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+         class="news-card md:col-span-2 bg-surface-container-lowest border border-outline/15 overflow-hidden fade-up group block hover:border-primary/20">
         <div class="h-44 overflow-hidden relative">
           <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=85"
                alt="OASIS Launch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
@@ -589,27 +633,14 @@
         </div>
       </a>
 
-      <!-- News placeholder 2 -->
-      <div class="bg-surface-container-lowest border border-outline/15 rounded-2xl overflow-hidden fade-up">
-        <div class="h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=800&q=85"
-               alt="News" class="w-full h-full object-cover"/>
-        </div>
-        <div class="p-6 space-y-3">
-          <p class="font-mono text-xs text-secondary uppercase tracking-widest" data-i18n="news_coming_soon">Скоро</p>
-          <h3 class="font-display font-semibold text-primary text-base" data-i18n="news_placeholder2_title">Новость 2</h3>
-          <p class="text-sm text-secondary leading-relaxed" data-i18n="news_placeholder_desc">Следите за обновлениями. Новости появятся в ближайшее время.</p>
-        </div>
-      </div>
-
       <!-- "All news" card -->
-      <div class="bg-primary rounded-2xl p-6 flex flex-col justify-between min-h-[280px] fade-up">
+      <div class="news-card bg-primary p-6 flex flex-col justify-between min-h-[280px] fade-up">
         <div class="space-y-3">
-          <span class="material-symbols-outlined text-tertiary-fixed text-3xl">rss_feed</span>
+          <span class="material-symbols-outlined text-on-primary text-3xl">rss_feed</span>
           <h3 class="font-display font-bold text-on-primary text-lg" data-i18n="news_subscribe_title">Следите за новостями</h3>
           <p class="text-sm text-on-primary/70 leading-relaxed" data-i18n="news_subscribe_desc">Мы будем публиковать обновления о ходе развития кластера, партнёрствах и событиях.</p>
         </div>
-        <a href="#contacts" class="mt-6 inline-flex items-center gap-2 bg-tertiary-fixed text-on-tertiary-fixed text-xs font-bold tracking-widest uppercase px-5 py-3 rounded-lg hover:opacity-90 active:scale-95 transition-all group" data-i18n="news_contact_btn">
+        <a href="#contacts" class="mt-6 inline-flex items-center gap-2 bg-on-primary text-primary text-xs font-bold tracking-widest uppercase px-5 py-3 rounded-lg hover:bg-primary-fixed active:scale-95 transition-all group" data-i18n="news_contact_btn">
           Связаться
           <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
         </a>
@@ -649,7 +680,7 @@
             </div>
             <div>
               <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_email_label">Email</p>
-              <a href="mailto:oasissiliconcluster@gmail.com" class="text-on-primary/80 text-sm hover:text-tertiary-fixed transition-colors">oasissiliconcluster@gmail.com</a>
+              <a href="mailto:oasissiliconcluster@gmail.com" class="text-on-primary/80 text-sm hover:text-on-primary/90 transition-colors">oasissiliconcluster@gmail.com</a>
             </div>
           </div>
           <div class="flex items-start gap-4">
@@ -658,7 +689,7 @@
             </div>
             <div>
               <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_phone_label">Телефон</p>
-              <a href="tel:+77767368042" class="text-on-primary/80 text-sm hover:text-tertiary-fixed transition-colors">+7 776 736 80 42</a>
+              <a href="tel:+77767368042" class="text-on-primary/80 text-sm hover:text-on-primary/90 transition-colors">+7 776 736 80 42</a>
             </div>
           </div>
         </div>
@@ -701,11 +732,11 @@
       </div>
     </div>
     <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-xs text-on-primary/50">
-      <a href="#about"     class="hover:text-tertiary-fixed transition-colors" data-i18n="nav_about">О нас</a>
-      <a href="#ecosystem" class="hover:text-tertiary-fixed transition-colors" data-i18n="nav_eco">Экосистема</a>
-      <a href="#partners"  class="hover:text-tertiary-fixed transition-colors" data-i18n="nav_partners">Партнёры</a>
-      <a href="#news"      class="hover:text-tertiary-fixed transition-colors" data-i18n="nav_news">Новости</a>
-      <a href="#contacts"  class="hover:text-tertiary-fixed transition-colors" data-i18n="nav_contact">Контакты</a>
+      <a href="#about"     class="hover:text-on-primary/90 transition-colors" data-i18n="nav_about">О нас</a>
+      <a href="#ecosystem" class="hover:text-on-primary/90 transition-colors" data-i18n="nav_eco">Экосистема</a>
+      <a href="#partners"  class="hover:text-on-primary/90 transition-colors" data-i18n="nav_partners">Партнёры</a>
+      <a href="#news"      class="hover:text-on-primary/90 transition-colors" data-i18n="nav_news">Новости</a>
+      <a href="#contacts"  class="hover:text-on-primary/90 transition-colors" data-i18n="nav_contact">Контакты</a>
     </div>
   </div>
 </footer>
@@ -728,6 +759,12 @@ const translations = {
     fact3_title: "При базе МФЦА",
     fact3_desc: "Работает на базе английского права, международного стандарта для инвесторов и технологических компаний.",
     infra_label: "Инфраструктура кластера",
+    infra1_title: "Цифровой двойник",
+    infra2_title: "Умные фабрики",
+    infra3_title: "Центр НИОКР",
+    infra4_title: "ИИ-платформа",
+    infra5_title: "Энергетика ESG",
+    infra6_title: "Экспортный хаб",
     infra1: "Цифровые двойники, предиктивная аналитика",
     infra2: "Модульные производственные здания",
     infra3: "Лаборатории и инженерные центры",
@@ -791,6 +828,12 @@ const translations = {
     fact3_title: "AIFC Jurisdiction",
     fact3_desc: "Operating under English Common Law, the international standard for investors and technology companies.",
     infra_label: "Cluster Infrastructure",
+    infra1_title: "Digital Twin Core",
+    infra2_title: "Smart Factories",
+    infra3_title: "R&D Core",
+    infra4_title: "AI Digital Platform",
+    infra5_title: "ESG Energy Process",
+    infra6_title: "Smart Export Hub",
     infra1: "Digital twins, predictive analytics",
     infra2: "Modular production buildings",
     infra3: "Labs and engineering centers",
@@ -854,6 +897,12 @@ const translations = {
     fact3_title: "ХҚКО базасында",
     fact3_desc: "ағылшын заңдары негізінде жұмыс істейді, инвесторлар мен технологиялық компаниялар үшін халықаралық стандарт.",
     infra_label: "Кластер инфрақұрылымы",
+    infra1_title: "Сандық егіз",
+    infra2_title: "Ақылды фабрикалар",
+    infra3_title: "ҒЗТКЖ орталығы",
+    infra4_title: "ЖИ цифрлық платформа",
+    infra5_title: "ESG энергетикасы",
+    infra6_title: "Экспорт хабы",
     infra1: "Цифрлық егіздер, болжамды аналитика",
     infra2: "Модульдік өндірістік ғимараттар",
     infra3: "Зертханалар мен инженерлік орталықтар",
