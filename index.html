@@ -631,37 +631,64 @@
       <h2 class="font-display font-bold leading-tight fade-up" style="font-size: clamp(1.75rem, 4vw, 3rem);" data-i18n="contact_h2">Свяжитесь с нами</h2>
     </div>
 
-    <div class="space-y-6 fade-up max-w-xl">
-      <p class="text-on-primary/70 text-base leading-relaxed" data-i18n="contact_intro">Если вы хотите узнать больше о кластере, обсудить партнёрство или инвестиции — напишите нам.</p>
-      <div class="space-y-4 pt-2">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
-            <span class="material-symbols-outlined text-primary-fixed-dim text-xl">location_on</span>
+    <div class="grid md:grid-cols-2 gap-10 lg:gap-16">
+
+      <!-- Contact info -->
+      <div class="space-y-6 fade-up">
+        <p class="text-on-primary/70 text-base leading-relaxed" data-i18n="contact_intro">Если вы хотите узнать больше о кластере, обсудить партнёрство или инвестиции — напишите нам.</p>
+        <div class="space-y-4 pt-2">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-primary-fixed-dim text-xl">location_on</span>
+            </div>
+            <div>
+              <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_addr_label">Адрес</p>
+              <p class="text-on-primary/80 text-sm" data-i18n="contact_addr">Астана, МФЦА, Казахстан</p>
+            </div>
           </div>
-          <div>
-            <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_addr_label">Адрес</p>
-            <p class="text-on-primary/80 text-sm" data-i18n="contact_addr">Астана, МФЦА, Казахстан</p>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-primary-fixed-dim text-xl">mail</span>
+            </div>
+            <div>
+              <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_email_label">Email</p>
+              <a href="mailto:oasissiliconcluster@gmail.com" class="text-on-primary/80 text-sm hover:text-tertiary-fixed transition-colors">oasissiliconcluster@gmail.com</a>
+            </div>
           </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
-            <span class="material-symbols-outlined text-primary-fixed-dim text-xl">mail</span>
-          </div>
-          <div>
-            <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_email_label">Email</p>
-            <a href="mailto:oasissiliconcluster@gmail.com" class="text-on-primary/80 text-sm hover:text-tertiary-fixed transition-colors">oasissiliconcluster@gmail.com</a>
-          </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
-            <span class="material-symbols-outlined text-primary-fixed-dim text-xl">phone</span>
-          </div>
-          <div>
-            <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_phone_label">Телефон</p>
-            <a href="tel:+77767368042" class="text-on-primary/80 text-sm hover:text-tertiary-fixed transition-colors">+7 776 736 80 42</a>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-on-primary/10 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-primary-fixed-dim text-xl">phone</span>
+            </div>
+            <div>
+              <p class="text-xs font-mono tracking-widest uppercase text-primary-fixed-dim mb-1" data-i18n="contact_phone_label">Телефон</p>
+              <a href="tel:+77767368042" class="text-on-primary/80 text-sm hover:text-tertiary-fixed transition-colors">+7 776 736 80 42</a>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- LinkedIn block -->
+      <div class="fade-up flex items-stretch">
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7468274306108588032/"
+           target="_blank" rel="noopener"
+           class="group flex flex-col justify-between w-full bg-on-primary/5 border border-on-primary/15 rounded-2xl p-7 hover:border-[#0A66C2]/60 hover:bg-[#0A66C2]/10 transition-all duration-300">
+          <div>
+            <!-- LinkedIn logo -->
+            <div class="w-12 h-12 rounded-xl bg-[#0A66C2] flex items-center justify-center mb-6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </div>
+            <p class="font-display font-bold text-on-primary text-xl leading-tight mb-3" data-i18n="linkedin_title">Следите за нами в LinkedIn</p>
+            <p class="text-on-primary/60 text-sm leading-relaxed" data-i18n="linkedin_desc">Новости кластера, партнёрства, события и обновления о развитии OASIS Silicon Cluster.</p>
+          </div>
+          <div class="mt-8 flex items-center gap-2 text-[#0A66C2] font-bold text-sm group-hover:gap-3 transition-all">
+            <span data-i18n="linkedin_btn">Открыть LinkedIn</span>
+            <span class="material-symbols-outlined text-base">arrow_outward</span>
+          </div>
+        </a>
+      </div>
+
     </div>
 
   </div>
@@ -748,6 +775,9 @@ const translations = {
     contact_name_placeholder: "Ваше имя", contact_email_placeholder: "Email",
     contact_msg_placeholder: "Ваше сообщение", contact_btn: "Отправить",
     footer_copy: "© 2026 Oasis Silicon Cluster. Все права защищены.",
+    linkedin_title: "Следите за нами в LinkedIn",
+    linkedin_desc: "Новости кластера, партнёрства, события и обновления о развитии OASIS Silicon Cluster.",
+    linkedin_btn: "Открыть LinkedIn",
   },
   en: {
     nav_about: "About", nav_eco: "Ecosystem", nav_partners: "Partners",
@@ -808,6 +838,9 @@ const translations = {
     contact_name_placeholder: "Your name", contact_email_placeholder: "Email",
     contact_msg_placeholder: "Your message", contact_btn: "Send",
     footer_copy: "© 2026 Oasis Silicon Cluster. All rights reserved.",
+    linkedin_title: "Follow us on LinkedIn",
+    linkedin_desc: "Cluster news, partnerships, events and updates on OASIS Silicon Cluster development.",
+    linkedin_btn: "Open LinkedIn",
   },
   kz: {
     nav_about: "Біз туралы", nav_eco: "Экожүйе", nav_partners: "Серіктестер",
@@ -868,6 +901,9 @@ const translations = {
     contact_name_placeholder: "Атыңыз", contact_email_placeholder: "Email",
     contact_msg_placeholder: "Хабарламаңыз", contact_btn: "Жіберу",
     footer_copy: "© 2026 Oasis Silicon Cluster. Барлық құқықтар қорғалған.",
+    linkedin_title: "LinkedIn-де бізді бақылаңыз",
+    linkedin_desc: "Кластер жаңалықтары, серіктестіктер, іс-шаралар және OASIS Silicon Cluster дамуы туралы жаңартулар.",
+    linkedin_btn: "LinkedIn ашу",
   }
 };
 
