@@ -161,7 +161,7 @@
   .infra-dot-ring { animation: dotPulse 2.5s ease-in-out infinite; animation-delay: .15s; }
 </style>
 </head>
-<body class="bg-surface text-on-surface font-body antialiased">
+<body class="bg-surface text-on-surface font-body antialiased overflow-x-hidden">
 
 <!-- ═══ NAVIGATION ═══ -->
 <nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-b border-primary/10 shadow-sm">
@@ -315,55 +315,51 @@
       </div>
     </div>
 
-    <!-- Infrastructure visual map -->
-    <div class="rounded-2xl overflow-hidden fade-up">
-
-      <!-- ── Desktop image map ── -->
-      <div class="relative hidden md:block">
-        <p class="text-xs font-bold tracking-[0.25em] uppercase text-primary-fixed-dim mb-4" data-i18n="infra_label">Инфраструктура кластера</p>
-        <img src="infra.png" alt="OASIS Silicon Cluster infrastructure map" class="w-full rounded-xl" style="display:block;"/>
-      </div>
-
-      <!-- ── Mobile card grid ── -->
-      <div class="md:hidden bg-primary rounded-2xl p-6">
-        <p class="text-xs font-bold tracking-[0.25em] uppercase text-primary-fixed-dim mb-6" data-i18n="infra_label">Инфраструктура кластера</p>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
-            <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">view_in_ar</span>
-            <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">Digital Twin Core</p>
-            <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra1">Цифровые двойники, предиктивная аналитика</p>
-          </div>
-          <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
-            <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">factory</span>
-            <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">Smart Factories</p>
-            <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra2">Модульные производственные здания</p>
-          </div>
-          <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
-            <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">science</span>
-            <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">R&amp;D Core</p>
-            <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra3">Лаборатории и инженерные центры</p>
-          </div>
-          <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
-            <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">psychology</span>
-            <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">AI Digital Platform</p>
-            <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra4">Цифровая платформа управления</p>
-          </div>
-          <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
-            <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">eco</span>
-            <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">ESG Energy Process</p>
-            <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra5">Солнечная и ветровая энергия</p>
-          </div>
-          <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
-            <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">local_shipping</span>
-            <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">Smart Export Hub</p>
-            <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra6">Мультимодальная логистика и экспорт</p>
-          </div>
+    <!-- Mobile card grid (inside padded container) -->
+    <div class="md:hidden bg-primary rounded-2xl p-6 fade-up">
+      <p class="text-xs font-bold tracking-[0.25em] uppercase text-primary-fixed-dim mb-6" data-i18n="infra_label">Инфраструктура кластера</p>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
+          <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">view_in_ar</span>
+          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">Digital Twin Core</p>
+          <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra1">Цифровые двойники, предиктивная аналитика</p>
+        </div>
+        <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
+          <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">factory</span>
+          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">Smart Factories</p>
+          <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra2">Модульные производственные здания</p>
+        </div>
+        <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
+          <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">science</span>
+          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">R&amp;D Core</p>
+          <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra3">Лаборатории и инженерные центры</p>
+        </div>
+        <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
+          <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">psychology</span>
+          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">AI Digital Platform</p>
+          <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra4">Цифровая платформа управления</p>
+        </div>
+        <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
+          <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">eco</span>
+          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">ESG Energy Process</p>
+          <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra5">Солнечная и ветровая энергия</p>
+        </div>
+        <div class="bg-on-primary/5 rounded-xl p-4 border border-on-primary/10">
+          <span class="material-symbols-outlined text-tertiary-fixed text-xl mb-2 block">local_shipping</span>
+          <p class="text-on-primary font-bold text-xs uppercase tracking-wide mb-1">Smart Export Hub</p>
+          <p class="text-on-primary/50 text-xs leading-relaxed" data-i18n="infra6">Мультимодальная логистика и экспорт</p>
         </div>
       </div>
-
     </div>
 
+  </div><!-- end padded container -->
+
+  <!-- Full-bleed infra image — desktop only, outside container -->
+  <div class="hidden md:block mt-10 fade-up">
+    <p class="text-xs font-bold tracking-[0.25em] uppercase text-primary-fixed-dim mb-4 max-w-container-max mx-auto px-4 md:px-margin-desktop" data-i18n="infra_label">Инфраструктура кластера</p>
+    <img src="infra.png" alt="OASIS Silicon Cluster infrastructure map" class="w-full block"/>
   </div>
+
 </section>
 
 <!-- ═══ ECOSYSTEM ═══ -->
