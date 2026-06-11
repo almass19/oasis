@@ -397,7 +397,7 @@
   <!-- Full-bleed infra image — desktop only, outside container -->
   <div class="hidden md:block mt-12 fade-up">
     <p class="font-display font-bold text-primary mb-5 max-w-container-max mx-auto px-4 md:px-margin-desktop" style="font-size: clamp(1.25rem, 2.5vw, 1.75rem);" data-i18n="infra_label">Инфраструктура кластера</p>
-    <img src="infra.png" alt="OASIS Silicon Cluster infrastructure map" class="w-full block"/>
+    <img src="Slide 16_9 - 453.png" alt="OASIS Silicon Cluster infrastructure map" class="w-full block" id="infra-img"/>
   </div>
 
 </section>
@@ -993,6 +993,12 @@ function applyTranslations() {
   // hero subtitle uses innerHTML for <br>
   const sub = document.querySelector('[data-i18n="hero_subtitle"]');
   if (sub && t['hero_subtitle']) sub.innerHTML = t['hero_subtitle'];
+  // infra image: RU version has Russian descriptions baked in
+  const infraImg = document.getElementById('infra-img');
+  if (infraImg) {
+    infraImg.src = currentLang === 'ru' ? 'Slide 16_9 - 453.png' : 'infra.png';
+  }
+
   // hero cta keep arrow icon
   const cta = document.querySelector('[data-i18n="hero_cta"]');
   if (cta) {
